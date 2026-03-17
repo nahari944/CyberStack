@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discord — CyberStack</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.disc-hero-wrap { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.disc-server-card {
+  background:var(--card); border:1px solid var(--border-bright);
+  border-radius:var(--radius-lg); padding:32px;
+  box-shadow:var(--glow); text-align:center;
+}
+.disc-server-logo { font-size:5rem; margin-bottom:14px; display:block; }
+.disc-server-name { font-family:'Orbitron',monospace; font-size:1.3rem; font-weight:800; color:var(--green); text-shadow:var(--glow); margin-bottom:6px; }
+.disc-members-stat { font-size:0.85rem; color:var(--muted); margin-bottom:22px; }
+.disc-members-stat span { color:var(--green); font-weight:700; }
+.disc-channels-list { display:flex; flex-direction:column; gap:8px; text-align:start; margin-bottom:24px; }
+.disc-badge-row { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom:22px; }
+.disc-badge {
+  font-family:'Share Tech Mono',monospace; font-size:0.65rem; letter-spacing:1px;
+  padding:4px 12px; border-radius:20px;
+  background:rgba(0,229,255,0.07); border:1px solid rgba(0,229,255,0.2); color:var(--cyan);
+}
+
+.benefits-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.benefit-card {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius-lg); padding:22px; transition:all 0.3s;
+}
+.benefit-card:hover { border-color:var(--border-bright); box-shadow:var(--glow); transform:translateY(-3px); }
+.bc-icon { font-size:2rem; margin-bottom:10px; }
+.bc-title { font-family:'Orbitron',monospace; font-size:0.85rem; font-weight:700; color:var(--white); margin-bottom:8px; }
+.bc-desc { font-size:0.82rem; color:var(--muted); line-height:1.65; }
+
+.rules-box {
+  background:var(--card); border:1px solid rgba(0,229,255,0.2);
+  border-radius:var(--radius-lg); padding:28px;
+  position:relative; overflow:hidden;
+}
+.rules-box::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,var(--cyan),transparent);
+}
+.rule-item { display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid rgba(0,229,255,0.06); }
+body.ar .rule-item { flex-direction:row-reverse; }
+.rule-item:last-child { border-bottom:none; }
+.rule-num { font-family:'Share Tech Mono',monospace; font-size:0.75rem; color:var(--cyan); flex-shrink:0; min-width:24px; }
+.rule-text { font-size:0.87rem; color:var(--muted); line-height:1.6; }
+
+.cta-disc {
+  background:linear-gradient(135deg,rgba(124,255,79,0.08),rgba(0,229,255,0.04));
+  border:1px solid var(--border-bright); border-radius:var(--radius-lg);
+  padding:56px; text-align:center; box-shadow:var(--glow);
+  position:relative; overflow:hidden;
+}
+.cta-disc::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,transparent,var(--green),var(--cyan),transparent);
+}
+
+@media(max-width:900px){ .disc-hero-wrap{grid-template-columns:1fr;} .benefits-grid{grid-template-columns:1fr 1fr;} }
+@media(max-width:580px){ .benefits-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-content">
+
+<div class="breadcrumb">
+  <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+  <span>›</span>
+  <span data-en="Discord" data-ar="الديسكورد">Discord</span>
+</div>
+
+<div class="page-hero" data-tag="// COMMUNITY">
+  <h1><span class="en-only">Join the <span class="hl">CyberStack</span> Discord</span><span class="ar-only" style="display:none">انضم إلى <span class="hl">سايبرستاك</span> ديسكورد</span></h1>
+  <p class="en-only">The most active bilingual tech and programming community — where developers, hackers, and learners grow together.</p>
+  <p class="ar-only" style="display:none">أكثر مجتمعات التقنية والبرمجة ثنائية اللغة نشاطًا — حيث يتطور المطورون والهاكرز والمتعلمون معًا.</p>
+</div>
+
+<!-- HERO SPLIT -->
+<section class="section">
+  <div class="container">
+    <div class="disc-hero-wrap">
+      <div class="fade-up">
+        <span class="tag-label" data-en="// ABOUT THE SERVER" data-ar="// عن السيرفر">// ABOUT THE SERVER</span>
+        <h2 class="section-title"><span class="en-only">A Community Built for <span class="hl">Builders</span></span><span class="ar-only" style="display:none">مجتمع بُنِي من أجل <span class="hl">الصانعين</span></span></h2>
+        <div class="neon-divider"></div>
+        <p class="section-desc en-only" style="margin-bottom:20px">CyberStack Discord is more than a chat server. It's a learning hub, a mentorship network, a hacking lab, and a place where complete beginners become skilled professionals — with help from the community.</p>
+        <p class="section-desc ar-only" style="display:none;margin-bottom:20px">ديسكورد سايبرستاك أكثر من مجرد سيرفر دردشة. إنه مركز تعلّم وشبكة إرشاد ومختبر اختراق ومكان يتحول فيه المبتدئون الكاملون إلى محترفين متمرسين.</p>
+        <div class="disc-badge-row">
+          <span class="disc-badge" data-en="ARABIC & ENGLISH" data-ar="عربي وإنجليزي">ARABIC & ENGLISH</span>
+          <span class="disc-badge" data-en="10,000+ MEMBERS" data-ar="+10,000 عضو">100+ MEMBERS</span>
+          <span class="disc-badge" data-en="50+ CHANNELS" data-ar="+50 قناة">50+ CHANNELS</span>
+          <span class="disc-badge" data-en="24/7 ACTIVE" data-ar="نشط 24/7">24/7 ACTIVE</span>
+        </div>
+        <a href="#" class="btn btn-primary btn-lg" style="margin-top:8px" data-en="⚡ Join Discord — Free" data-ar="⚡ انضم إلى الديسكورد — مجانًا">⚡ Join Discord — Free</a>
+      </div>
+      <div class="disc-server-card fade-up" style="transition-delay:0.15s">
+        <span class="disc-server-logo">💬</span>
+        <div class="disc-server-name">CyberStack</div>
+        <div class="disc-members-stat en-only"><span>100+</span> members online now</div>
+        <div class="disc-members-stat ar-only" style="display:none"><span>+100</span> عضو متصل الآن</div>
+        <div class="disc-channels-list">
+          <div class="disc-ch">📢 <span data-en="# announcements" data-ar="# الإعلانات"># announcements</span></div>
+          <div class="disc-ch">💬 <span data-en="# general-chat" data-ar="# الدردشة العامة"># general-chat</span></div>
+          <div class="disc-ch">💻 <span data-en="# programming-help" data-ar="# مساعدة-برمجية"># programming-help</span></div>
+          <div class="disc-ch">🔒 <span data-en="# cybersecurity" data-ar="# أمن-سيبراني"># cybersecurity</span></div>
+          <div class="disc-ch">🧠 <span data-en="# ai-discussion" data-ar="# نقاش-الذكاء-الاصطناعي"># ai-discussion</span></div>
+          <div class="disc-ch">🎯 <span data-en="# project-showcase" data-ar="# عرض-المشاريع"># project-showcase</span></div>
+          <div class="disc-ch">📡 <span data-en="# tech-news" data-ar="# أخبار-التقنية"># tech-news</span></div>
+          <div class="disc-ch">🎮 <span data-en="# ctf-events" data-ar="# فعاليات-CTF"># ctf-events</span></div>
+        </div>
+        <a href="#" class="btn btn-primary" style="width:100%;justify-content:center;display:flex" data-en="🔗 Join Now" data-ar="🔗 انضم الآن">🔗 Join Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- BENEFITS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="fade-up centered">
+      <span class="tag-label" data-en="// WHAT YOU GET" data-ar="// ما ستحصل عليه">// WHAT YOU GET</span>
+      <h2 class="section-title"><span class="en-only">Member <span class="hl">Benefits</span></span><span class="ar-only" style="display:none">مزايا <span class="hl">الأعضاء</span></span></h2>
+      <div class="neon-divider"></div>
+    </div>
+    <div class="benefits-grid fade-up" style="margin-top:44px">
+      <div class="benefit-card">
+        <div class="bc-icon">💻</div>
+        <div class="bc-title" data-en="Programming Help" data-ar="مساعدة برمجية">Programming Help</div>
+        <div class="bc-desc" data-en="Stuck on a bug? Post your code and get help from experienced developers within minutes. No question is too basic." data-ar="عالق في خطأ برمجي؟ شارك كودك واحصل على مساعدة من مطورين محترفين في دقائق. لا يوجد سؤال بسيط جدًا.">Stuck on a bug? Post your code and get help from experienced developers within minutes. No question is too basic.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="bc-icon">🔒</div>
+        <div class="bc-title" data-en="Cybersecurity Hub" data-ar="مركز الأمن السيبراني">Cybersecurity Hub</div>
+        <div class="bc-desc" data-en="CTF challenges, ethical hacking discussions, vulnerability research, and a dedicated space for cybersecurity learners." data-ar="تحديات CTF ونقاشات الاختراق الأخلاقي وأبحاث الثغرات وفضاء مخصص لمتعلمي الأمن السيبراني.">CTF challenges, ethical hacking discussions, vulnerability research, and a dedicated space for cybersecurity learners.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="bc-icon">🧠</div>
+        <div class="bc-title" data-en="AI & Tech Talk" data-ar="نقاشات الذكاء الاصطناعي والتقنية">AI & Tech Talk</div>
+        <div class="bc-desc" data-en="Stay updated with the latest in AI, discuss new tools, explore tech trends, and debate the future of technology." data-ar="ابقَ على اطلاع بآخر مستجدات الذكاء الاصطناعي وناقش الأدوات الجديدة واستكشف اتجاهات التقنية.">Stay updated with the latest in AI, discuss new tools, explore tech trends, and debate the future of technology.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="bc-icon">🎯</div>
+        <div class="bc-title" data-en="Events & Hackathons" data-ar="الفعاليات والهاكاثونات">Events & Hackathons</div>
+        <div class="bc-desc" data-en="Participate in CTF events, coding challenges, hackathons, and community competitions — with prizes and recognition." data-ar="شارك في فعاليات CTF وتحديات الكود والهاكاثونات والمسابقات المجتمعية — مع جوائز وتقدير.">Participate in CTF events, coding challenges, hackathons, and community competitions — with prizes and recognition.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="bc-icon">🌍</div>
+        <div class="bc-title" data-en="Global Network" data-ar="شبكة عالمية">Global Network</div>
+        <div class="bc-desc" data-en="Connect with developers and tech enthusiasts from 50+ countries. Build friendships, collaborations, and career opportunities." data-ar="تواصل مع مطورين وعشاق التقنية من أكثر من 50 دولة. ابنِ صداقات وتعاونات وفرص مهنية.">Connect with developers and tech enthusiasts from 50+ countries. Build friendships, collaborations, and career opportunities.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="bc-icon">📚</div>
+        <div class="bc-title" data-en="Resources & Guides" data-ar="الموارد والأدلة">Resources & Guides</div>
+        <div class="bc-desc" data-en="Curated learning resources, roadmaps, book recommendations, and course guides shared by the community." data-ar="موارد تعلّم منتقاة وخرائط طريق وتوصيات كتب وأدلة دورات يشاركها المجتمع.">Curated learning resources, roadmaps, book recommendations, and course guides shared by the community.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- RULES -->
+<section class="section">
+  <div class="container-md">
+    <div class="fade-up">
+      <span class="tag-label" data-en="// SERVER RULES" data-ar="// قوانين السيرفر">// SERVER RULES</span>
+      <h2 class="section-title"><span class="en-only">Community <span class="hl">Rules</span></span><span class="ar-only" style="display:none">قوانين <span class="hl">المجتمع</span></span></h2>
+      <div class="neon-divider"></div>
+    </div>
+    <div class="rules-box fade-up" style="margin-top:32px">
+      <div class="rule-item">
+        <div class="rule-num">01</div>
+        <div class="rule-text" data-en="Respect everyone. No hate speech, discrimination, or personal attacks of any kind." data-ar="احترم الجميع. لا خطاب كراهية أو تمييز أو هجمات شخصية من أي نوع.">Respect everyone. No hate speech, discrimination, or personal attacks of any kind.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-num">02</div>
+        <div class="rule-text" data-en="Keep topics relevant to each channel. Programming help goes in #programming-help, not general chat." data-ar="أبقِ المواضيع ذات الصلة بكل قناة. المساعدة البرمجية تذهب إلى #مساعدة-برمجية وليس الدردشة العامة.">Keep topics relevant to each channel. Programming help goes in #programming-help, not general chat.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-num">03</div>
+        <div class="rule-text" data-en="No spam, self-promotion, or advertising without moderator permission." data-ar="لا سبام أو ترويج ذاتي أو إعلانات بدون إذن المشرفين.">No spam, self-promotion, or advertising without moderator permission.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-num">04</div>
+        <div class="rule-text" data-en="Cybersecurity discussions are for education only. No illegal activity, malware sharing, or real target discussions." data-ar="نقاشات الأمن السيبراني للتعليم فقط. لا نشاط غير قانوني أو مشاركة برامج ضارة أو نقاشات الأهداف الحقيقية.">Cybersecurity discussions are for education only. No illegal activity, malware sharing, or real target discussions.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-num">05</div>
+        <div class="rule-text" data-en="Help freely. The best way to learn is to teach. Be patient with beginners." data-ar="ساعد بحرية. أفضل طريقة للتعلم هي التدريس. كن صبورًا مع المبتدئين.">Help freely. The best way to learn is to teach. Be patient with beginners.</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-num">06</div>
+        <div class="rule-text" data-en="When sharing code, use code blocks. When asking for help, include your error message and what you've already tried." data-ar="عند مشاركة الكود، استخدم كتل الكود. عند طلب المساعدة، أرفق رسالة الخطأ وما جربته بالفعل.">When sharing code, use code blocks. When asking for help, include your error message and what you've already tried.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- BIG CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta-disc fade-up">
+      <span class="tag-label" data-en="// JOIN US NOW" data-ar="// انضم إلينا الآن">// JOIN US NOW</span>
+      <h2 class="section-title" style="font-size:clamp(1.8rem,4vw,3rem);margin-bottom:16px">
+        <span class="en-only">Ready to Join <span class="hl">CyberStack?</span></span>
+        <span class="ar-only" style="display:none">هل أنت مستعد للانضمام إلى <span class="hl">سايبرستاك؟</span></span>
+      </h2>
+      <p class="section-desc en-only" style="margin:0 auto 32px">10,000+ developers and hackers are waiting for you. It's free. It's bilingual. And it might be the best thing you do for your tech career.</p>
+      <p class="section-desc ar-only" style="display:none;margin:0 auto 32px">+10,000 مطور وهاكر ينتظرونك. إنه مجاني وثنائي اللغة. وقد يكون أفضل شيء تفعله لمسيرتك التقنية.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="#" class="btn btn-primary btn-lg" data-en="⚡ Join Discord — Free" data-ar="⚡ انضم إلى الديسكورد — مجانًا">⚡ Join Discord — Free</a>
+        <a href="about.html" class="btn btn-outline" data-en="Learn About CyberStack" data-ar="تعرف على سايبرستاك">Learn About CyberStack</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+<div id="footer-placeholder"></div>
+<script src="js/main.js"></script>
+</body>
+</html>

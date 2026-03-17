@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — CyberStack</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.contact-grid { display:grid; grid-template-columns:1.3fr 1fr; gap:52px; align-items:start; }
+.contact-form-card {
+  background:var(--card); border:1px solid var(--border-bright);
+  border-radius:var(--radius-lg); padding:36px;
+  box-shadow:var(--glow); position:relative; overflow:hidden;
+}
+.contact-form-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,var(--green),var(--cyan));
+}
+.contact-sidebar { display:flex; flex-direction:column; gap:18px; }
+
+.contact-info-card {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius-lg); padding:24px; transition:all 0.3s;
+}
+.contact-info-card:hover { border-color:var(--border-bright); box-shadow:var(--glow); }
+.ci-icon { font-size:1.8rem; margin-bottom:10px; }
+.ci-title { font-family:'Orbitron',monospace; font-size:0.85rem; font-weight:700; color:var(--white); margin-bottom:6px; }
+.ci-val { font-size:0.85rem; color:var(--muted); }
+.ci-val a { color:var(--green); text-decoration:none; transition:color 0.2s; }
+.ci-val a:hover { color:var(--lime); }
+
+.social-links-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.social-link {
+  display:flex; align-items:center; gap:12px;
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius-lg); padding:14px 16px;
+  text-decoration:none; color:inherit; transition:all 0.3s;
+}
+body.ar .social-link { flex-direction:row-reverse; }
+.social-link:hover { border-color:var(--border-bright); box-shadow:var(--glow); transform:translateY(-2px); }
+.sl-icon { font-size:1.4rem; flex-shrink:0; }
+.sl-name { font-family:'Share Tech Mono',monospace; font-size:0.75rem; color:var(--muted); }
+.sl-name b { display:block; color:var(--white); font-size:0.8rem; }
+
+.success-msg {
+  background:rgba(124,255,79,0.08); border:1px solid rgba(124,255,79,0.3);
+  border-radius:var(--radius); padding:14px 18px;
+  font-family:'Share Tech Mono',monospace; font-size:0.8rem;
+  color:var(--green); display:none; margin-top:14px;
+  text-align:center;
+}
+
+@media(max-width:900px){ .contact-grid{grid-template-columns:1fr;} .social-links-grid{grid-template-columns:1fr 1fr;} }
+@media(max-width:480px){ .social-links-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-content">
+
+<div class="breadcrumb">
+  <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+  <span>›</span>
+  <span data-en="Contact" data-ar="تواصل معنا">Contact</span>
+</div>
+
+<div class="page-hero" data-tag="// REACH OUT">
+  <h1><span class="en-only">Get in <span class="hl">Touch</span></span><span class="ar-only" style="display:none"><span class="hl">تواصل</span> معنا</span></h1>
+  <p class="en-only">Questions, suggestions, partnerships, or just want to say hi — we'd love to hear from you.</p>
+  <p class="ar-only" style="display:none">أسئلة أو اقتراحات أو شراكات أو فقط تريد التحية — نحن نحب سماعك.</p>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- FORM -->
+      <div class="contact-form-card fade-up">
+        <span class="tag-label" data-en="// SEND A MESSAGE" data-ar="// أرسل رسالة">// SEND A MESSAGE</span>
+        <h2 class="section-title" style="font-size:1.5rem;margin-bottom:24px">
+          <span class="en-only">Contact <span class="hl">Form</span></span>
+          <span class="ar-only" style="display:none">نموذج <span class="hl">التواصل</span></span>
+        </h2>
+
+        <div class="form-group">
+          <label class="form-label" data-en="YOUR NAME" data-ar="اسمك">YOUR NAME</label>
+          <input type="text" class="form-input" id="fname" data-en-placeholder="Enter your name" data-ar-placeholder="أدخل اسمك" placeholder="Enter your name">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" data-en="EMAIL ADDRESS" data-ar="البريد الإلكتروني">EMAIL ADDRESS</label>
+          <input type="email" class="form-input" id="femail" data-en-placeholder="your@email.com" data-ar-placeholder="بريدك@الإلكتروني.com" placeholder="your@email.com">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" data-en="TOPIC" data-ar="الموضوع">TOPIC</label>
+          <select class="form-select" id="ftopic">
+            <option class="en-only" value="">Select a topic...</option>
+            <option class="ar-only" value="" style="display:none">اختر موضوعًا...</option>
+            <option data-en="General Question" data-ar="سؤال عام">General Question</option>
+            <option data-en="Partnership / Collaboration" data-ar="شراكة / تعاون">Partnership / Collaboration</option>
+            <option data-en="Bug Report" data-ar="الإبلاغ عن خطأ">Bug Report</option>
+            <option data-en="Content Suggestion" data-ar="اقتراح محتوى">Content Suggestion</option>
+            <option data-en="Discord Related" data-ar="متعلق بالديسكورد">Discord Related</option>
+            <option data-en="Other" data-ar="أخرى">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" data-en="MESSAGE" data-ar="الرسالة">MESSAGE</label>
+          <textarea class="form-textarea" id="fmsg" data-en-placeholder="Write your message here..." data-ar-placeholder="اكتب رسالتك هنا..." placeholder="Write your message here..."></textarea>
+        </div>
+
+        <button class="btn btn-primary" style="width:100%;justify-content:center" id="fsubmit">
+          <span data-en="⚡ Send Message" data-ar="⚡ إرسال الرسالة">⚡ Send Message</span>
+        </button>
+        <div class="success-msg" id="fSuccess" data-en="✅ Message received! We'll get back to you soon." data-ar="✅ تم استلام الرسالة! سنعود إليك قريبًا.">✅ Message received! We'll get back to you soon.</div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="contact-sidebar fade-up" style="transition-delay:0.15s">
+        <div>
+          <span class="tag-label" data-en="// CONTACT INFO" data-ar="// معلومات التواصل">// CONTACT INFO</span>
+          <h2 class="section-title" style="font-size:1.4rem;margin-bottom:20px">
+            <span class="en-only">Other Ways to <span class="hl">Reach Us</span></span>
+            <span class="ar-only" style="display:none">طرق <span class="hl">أخرى</span> للتواصل</span>
+          </h2>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="ci-icon">📧</div>
+          <div class="ci-title" data-en="Email" data-ar="البريد الإلكتروني">Email</div>
+          <div class="ci-val"><a href="mailto:hello@cyberstack.community">hello@cyberstack.community</a></div>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="ci-icon">💬</div>
+          <div class="ci-title" data-en="Discord" data-ar="الديسكورد">Discord</div>
+          <div class="ci-val" data-en="The fastest way to reach us. Join our server and open a ticket." data-ar="أسرع طريقة للوصول إلينا. انضم إلى سيرفرنا وافتح تذكرة.">The fastest way to reach us. Join our server and open a ticket.</div>
+          <div style="margin-top:10px"><a href="discord.html" class="btn btn-outline btn-sm" data-en="Open Discord" data-ar="فتح الديسكورد">Open Discord</a></div>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="ci-icon">⏱️</div>
+          <div class="ci-title" data-en="Response Time" data-ar="وقت الرد">Response Time</div>
+          <div class="ci-val" data-en="We typically respond within 24–48 hours. Discord responses are usually much faster." data-ar="نرد عادةً خلال 24–48 ساعة. ردود الديسكورد عادةً أسرع بكثير.">We typically respond within 24–48 hours. Discord responses are usually much faster.</div>
+        </div>
+
+        <!-- SOCIAL -->
+        <div>
+          <span class="tag-label" style="margin-top:10px" data-en="// SOCIAL LINKS" data-ar="// روابط التواصل الاجتماعي">// SOCIAL LINKS</span>
+          <div class="social-links-grid">
+            <a href="#" class="social-link">
+              <span class="sl-icon">💬</span>
+              <div class="sl-name"><b>Discord</b><span data-en="Community" data-ar="المجتمع">Community</span></div>
+            </a>
+            <a href="#" class="social-link">
+              <span class="sl-icon">🐦</span>
+              <div class="sl-name"><b>Twitter / X</b><span data-en="Updates" data-ar="التحديثات">Updates</span></div>
+            </a>
+            <a href="#" class="social-link">
+              <span class="sl-icon">⚡</span>
+              <div class="sl-name"><b>GitHub</b><span data-en="Open Source" data-ar="مفتوح المصدر">Open Source</span></div>
+            </a>
+            <a href="#" class="social-link">
+              <span class="sl-icon">▶</span>
+              <div class="sl-name"><b>YouTube</b><span data-en="Tutorials" data-ar="دروس">Tutorials</span></div>
+            </a>
+            <a href="#" class="social-link">
+              <span class="sl-icon">📸</span>
+              <div class="sl-name"><b>Instagram</b><span data-en="Community" data-ar="المجتمع">Community</span></div>
+            </a>
+            <a href="#" class="social-link">
+              <span class="sl-icon">💼</span>
+              <div class="sl-name"><b>LinkedIn</b><span data-en="Professional" data-ar="مهني">Professional</span></div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- FAQ -->
+<section class="section section-alt">
+  <div class="container-md">
+    <div class="fade-up centered">
+      <span class="tag-label" data-en="// FAQ" data-ar="// الأسئلة الشائعة">// FAQ</span>
+      <h2 class="section-title"><span class="en-only">Common <span class="hl">Questions</span></span><span class="ar-only" style="display:none">الأسئلة <span class="hl">الشائعة</span></span></h2>
+      <div class="neon-divider"></div>
+    </div>
+    <div class="fade-up" style="margin-top:40px;display:flex;flex-direction:column;gap:14px" id="faqList"></div>
+  </div>
+</section>
+
+</div>
+<div id="footer-placeholder"></div>
+<script src="js/main.js"></script>
+<script>
+// Form
+document.getElementById('fsubmit').addEventListener('click', () => {
+  const n = document.getElementById('fname').value.trim();
+  const e = document.getElementById('femail').value.trim();
+  const m = document.getElementById('fmsg').value.trim();
+  if (!n || !e || !m) {
+    const isAr = document.body.classList.contains('ar');
+    alert(isAr ? 'يرجى ملء جميع الحقول المطلوبة.' : 'Please fill in all required fields.');
+    return;
+  }
+  const suc = document.getElementById('fSuccess');
+  suc.style.display = 'block';
+  suc.textContent = document.body.classList.contains('ar')
+    ? '✅ تم استلام الرسالة! سنعود إليك قريبًا.'
+    : '✅ Message received! We\'ll get back to you soon.';
+  setTimeout(() => suc.style.display = 'none', 4000);
+});
+
+// Placeholder lang fix
+function updatePlaceholders() {
+  const isAr = document.body.classList.contains('ar');
+  document.querySelectorAll('[data-en-placeholder]').forEach(el => {
+    el.placeholder = isAr ? (el.dataset.arPlaceholder || '') : el.dataset.enPlaceholder;
+  });
+}
+
+const origApply = window.applyLang;
+window.applyLang = lang => {
+  origApply && origApply(lang);
+  updatePlaceholders();
+  renderFaq();
+};
+
+// FAQ
+const faqs = [
+  {en:{q:'Is CyberStack free to join?',a:'Yes, completely free. Our Discord server, this website, and all our learning resources are 100% free. We believe knowledge should be accessible to everyone.'},ar:{q:'هل الانضمام إلى سايبرستاك مجاني؟',a:'نعم، مجاني تمامًا. سيرفر الديسكورد والموقع وجميع موارد التعلم لدينا مجانية 100%. نؤمن بأن المعرفة يجب أن تكون متاحة للجميع.'}},
+  {en:{q:'Can I contribute content or tutorials?',a:'Absolutely. We welcome contributions from community members. Reach out via Discord or email and tell us what you\'d like to share with the community.'},ar:{q:'هل يمكنني المساهمة بمحتوى أو دروس؟',a:'بالتأكيد. نرحب بمساهمات أعضاء المجتمع. تواصل معنا عبر الديسكورد أو البريد الإلكتروني وأخبرنا بما تريد مشاركته مع المجتمع.'}},
+  {en:{q:'Do you offer one-on-one mentorship?',a:'We have experienced members who volunteer as mentors on our Discord server. Post in the relevant channel and community members will be happy to guide you.'},ar:{q:'هل تقدمون إرشادًا فرديًا؟',a:'لدينا أعضاء ذوو خبرة يتطوعون كموجهين على سيرفر الديسكورد. انشر في القناة ذات الصلة وسيسعد أعضاء المجتمع بإرشادك.'}},
+  {en:{q:'Is the content available in both Arabic and English?',a:'Yes. CyberStack is fully bilingual. The website, Discord server, and all major content are available in both Arabic and English. Use the language switcher at the top of any page.'},ar:{q:'هل المحتوى متاح باللغتين العربية والإنجليزية؟',a:'نعم. سايبرستاك ثنائية اللغة بالكامل. الموقع وسيرفر الديسكورد وجميع المحتويات الرئيسية متاحة باللغتين العربية والإنجليزية. استخدم مبدّل اللغة في أعلى أي صفحة.'}},
+  {en:{q:'Can I suggest a new topic or page for the website?',a:'We love suggestions. Use the contact form on this page, select "Content Suggestion" as the topic, and describe what you\'d like to see. We read every message.'},ar:{q:'هل يمكنني اقتراح موضوع أو صفحة جديدة للموقع؟',a:'نحب الاقتراحات. استخدم نموذج التواصل في هذه الصفحة، اختر "اقتراح محتوى" كموضوع، وصف ما تريد رؤيته. نقرأ كل رسالة.'}},
+];
+
+function renderFaq() {
+  const isAr = document.body.classList.contains('ar');
+  const lang = isAr ? 'ar' : 'en';
+  document.getElementById('faqList').innerHTML = faqs.map((f, i) => `
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden">
+      <div style="padding:18px 22px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;gap:14px" onclick="toggleFaq(${i})" id="faqHead${i}">
+        <div style="font-size:0.95rem;font-weight:700;color:var(--white)">${f[lang].q}</div>
+        <span style="color:var(--green);font-family:'Share Tech Mono',monospace;font-size:1rem;flex-shrink:0" id="faqArrow${i}">+</span>
+      </div>
+      <div style="display:none;padding:0 22px 18px;font-size:0.87rem;color:var(--muted);line-height:1.75;border-top:1px solid var(--border)" id="faqBody${i}">${f[lang].a}</div>
+    </div>
+  `).join('');
+}
+
+function toggleFaq(i) {
+  const body = document.getElementById('faqBody' + i);
+  const arrow = document.getElementById('faqArrow' + i);
+  const isOpen = body.style.display === 'block';
+  body.style.display = isOpen ? 'none' : 'block';
+  arrow.textContent = isOpen ? '+' : '−';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => { renderFaq(); updatePlaceholders(); }, 80);
+});
+</script>
+</body>
+</html>

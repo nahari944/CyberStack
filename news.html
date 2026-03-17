@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News — CyberStack</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.news-controls { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; margin-bottom:36px; }
+.featured-article {
+  background:var(--card); border:1px solid var(--border-bright);
+  border-radius:var(--radius-lg); overflow:hidden;
+  display:grid; grid-template-columns:1.3fr 1fr;
+  margin-bottom:50px; box-shadow:var(--glow);
+}
+.fa-thumb {
+  background:linear-gradient(135deg,rgba(124,255,79,0.1),rgba(0,229,255,0.06));
+  display:flex; align-items:center; justify-content:center;
+  font-size:6rem; min-height:300px; position:relative;
+}
+.fa-featured-badge {
+  position:absolute; top:18px; left:18px;
+  font-family:'Share Tech Mono',monospace; font-size:0.65rem; letter-spacing:3px;
+  color:var(--green); background:rgba(124,255,79,0.1);
+  border:1px solid var(--border-bright); padding:5px 12px; border-radius:3px;
+}
+body.ar .fa-featured-badge { left:auto; right:18px; }
+.fa-body { padding:36px; display:flex; flex-direction:column; justify-content:center; }
+.fa-cat { font-family:'Share Tech Mono',monospace; font-size:0.68rem; letter-spacing:3px; color:var(--cyan); margin-bottom:12px; }
+.fa-title { font-family:'Orbitron',monospace; font-size:1.3rem; font-weight:800; color:var(--white); line-height:1.3; margin-bottom:12px; }
+.fa-date { font-family:'Share Tech Mono',monospace; font-size:0.68rem; color:var(--dim); margin-bottom:14px; }
+.fa-desc { font-size:0.9rem; color:var(--muted); line-height:1.75; margin-bottom:22px; }
+
+.news-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:22px; }
+.news-count { font-family:'Share Tech Mono',monospace; font-size:0.72rem; color:var(--muted); letter-spacing:1px; }
+.hidden { display:none !important; }
+
+@media(max-width:800px){ .featured-article{grid-template-columns:1fr;} .fa-thumb{min-height:180px;} }
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-content">
+
+<div class="breadcrumb">
+  <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+  <span>›</span>
+  <span data-en="News" data-ar="الأخبار">News</span>
+</div>
+
+<div class="page-hero" data-tag="// NEWS FEED">
+  <h1><span class="en-only">Tech & Programming <span class="hl">News</span></span><span class="ar-only" style="display:none">أخبار التقنية <span class="hl">والبرمجة</span></span></h1>
+  <p class="en-only">The latest in technology, programming, cybersecurity, and AI — curated for the CyberStack community.</p>
+  <p class="ar-only" style="display:none">الأحدث في التكنولوجيا والبرمجة والأمن السيبراني والذكاء الاصطناعي — منتقى لمجتمع سايبرستاك.</p>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Featured -->
+    <div class="featured-article fade-up">
+      <div class="fa-thumb">
+        🤖
+        <div class="fa-featured-badge" data-en="🔥 FEATURED" data-ar="🔥 مميز">🔥 FEATURED</div>
+      </div>
+      <div class="fa-body">
+        <div class="fa-cat" data-en="AI & MACHINE LEARNING" data-ar="الذكاء الاصطناعي">AI & MACHINE LEARNING</div>
+        <div class="fa-title en-only">GPT-5 Launches with Multimodal Reasoning and Code Agent</div>
+        <div class="fa-title ar-only" style="display:none">إطلاق GPT-5 بالاستدلال متعدد الوسائط ووكيل الكود</div>
+        <div class="fa-date">March 15, 2025</div>
+        <div class="fa-desc en-only">OpenAI's latest and most powerful model introduces true autonomous code agents, 10x improved reasoning, and native multimodal processing — setting a new bar for what AI can do in software development and beyond.</div>
+        <div class="fa-desc ar-only" style="display:none">أحدث وأقوى نموذج لـ OpenAI يُقدّم وكلاء كود مستقلين حقيقيين واستدلالًا أفضل بـ 10 مرات ومعالجة متعددة الوسائط أصلية.</div>
+        <a href="#" class="btn btn-outline btn-sm" data-en="Read Full Story →" data-ar="اقرأ القصة كاملة ←">Read Full Story →</a>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="news-controls fade-up">
+      <div class="filter-tabs" id="filterTabs">
+        <button class="filter-tab active" data-cat="all" data-en="All" data-ar="الكل">All</button>
+        <button class="filter-tab" data-cat="tech" data-en="Tech" data-ar="تقنية">Tech</button>
+        <button class="filter-tab" data-cat="programming" data-en="Programming" data-ar="برمجة">Programming</button>
+        <button class="filter-tab" data-cat="cyber" data-en="Cybersecurity" data-ar="أمن سيبراني">Cybersecurity</button>
+        <button class="filter-tab" data-cat="ai" data-en="AI" data-ar="ذكاء اصطناعي">AI</button>
+      </div>
+      <div class="search-wrap">
+        <input type="text" class="search-input" id="newsSearch" placeholder="Search news..." data-en-placeholder="Search news..." data-ar-placeholder="ابحث في الأخبار...">
+        <span class="search-icon">🔍</span>
+      </div>
+    </div>
+
+    <div class="news-count" id="newsCount"></div>
+    <div class="news-grid" id="newsGrid" style="margin-top:18px;"></div>
+
+  </div>
+</section>
+
+</div>
+<div id="footer-placeholder"></div>
+<script src="js/main.js"></script>
+<script>
+const allNews = [
+  {cat:'ai',icon:'🧠',date:'Mar 12, 2025',dateAr:'12 مارس 2025',en:{title:'Google DeepMind Achieves Protein Folding Breakthrough with AlphaFold 3',desc:'The newest version of AlphaFold can now predict molecular interactions with accuracy that rivals experimental methods.'},ar:{title:'Google DeepMind يحقق اختراقًا في طي البروتينات مع AlphaFold 3',desc:'الإصدار الأحدث من AlphaFold يمكنه الآن التنبؤ بالتفاعلات الجزيئية بدقة تنافس الطرق التجريبية.'}},
+  {cat:'cyber',icon:'🔒',date:'Mar 10, 2025',dateAr:'10 مارس 2025',en:{title:'Critical Zero-Day Vulnerability Found in Apache Web Server',desc:'Security researchers discovered a critical RCE vulnerability affecting millions of Apache deployments worldwide.'},ar:{title:'اكتشاف ثغرة Zero-Day حرجة في خادم Apache',desc:'اكتشف باحثو الأمن ثغرة RCE حرجة تؤثر على ملايين نشرات Apache في جميع أنحاء العالم.'}},
+  {cat:'programming',icon:'⚙️',date:'Mar 8, 2025',dateAr:'8 مارس 2025',en:{title:'JavaScript Turns 30 — How It Conquered the Web',desc:'A deep dive into the history and evolution of JavaScript from a simple browser scripting tool to the language powering the entire web stack.'},ar:{title:'JavaScript يبلغ 30 عامًا — كيف غزا الويب',desc:'تعمّق في تاريخ وتطور JavaScript من أداة برمجة نصية بسيطة للمتصفح إلى اللغة التي تُشغّل مكدس الويب بالكامل.'}},
+  {cat:'tech',icon:'🚀',date:'Mar 6, 2025',dateAr:'6 مارس 2025',en:{title:'SpaceX Starship Completes First Fully Reusable Round Trip',desc:'Both the Super Heavy booster and Starship successfully landed after orbital flight — a historic milestone for reusable space travel.'},ar:{title:'Starship SpaceX تُكمل أول رحلة ذهابًا وإيابًا قابلة لإعادة الاستخدام',desc:'نجح كل من المعزز Super Heavy والمركبة Starship في الهبوط بعد رحلة مدارية — مرحلة تاريخية.'}},
+  {cat:'ai',icon:'🤖',date:'Mar 4, 2025',dateAr:'4 مارس 2025',en:{title:'Anthropic Releases Claude 4 with 1M Token Context Window',desc:'The latest Claude model supports a 1-million token context window, enabling analysis of entire codebases and book-length documents.'},ar:{title:'Anthropic تُصدر Claude 4 بنافذة سياق مليون رمز',desc:'أحدث نموذج Claude يدعم نافذة سياق مليون رمز، مما يتيح تحليل قواعد أكواد بأكملها ووثائق بطول الكتب.'}},
+  {cat:'programming',icon:'🐍',date:'Mar 2, 2025',dateAr:'2 مارس 2025',en:{title:'Python 3.13 Released with JIT Compiler Offering 50% Speed Boost',desc:'The newest Python release introduces an experimental JIT compiler that can dramatically speed up certain workloads.'},ar:{title:'إصدار Python 3.13 مع مترجم JIT يوفر تسريعًا بنسبة 50%',desc:'أحدث إصدار من Python يُقدّم مترجم JIT تجريبيًا يمكنه تسريع أعباء العمل المعينة بشكل كبير.'}},
+  {cat:'cyber',icon:'🛡️',date:'Feb 28, 2025',dateAr:'28 فبراير 2025',en:{title:'International Cyber Task Force Dismantles Major Ransomware Network',desc:'Law enforcement agencies from 12 countries coordinated to take down a ransomware operation responsible for $400M in attacks.'},ar:{title:'فرقة العمل الدولية للإنترنت تُفكك شبكة برامج فدية كبرى',desc:'تنسّقت وكالات إنفاذ القانون من 12 دولة لإسقاط عملية برامج فدية مسؤولة عن هجمات بقيمة 400 مليون دولار.'}},
+  {cat:'tech',icon:'💻',date:'Feb 25, 2025',dateAr:'25 فبراير 2025',en:{title:'Apple Vision Pro 2 Confirmed — M4 Ultra Chip and All-Day Battery',desc:'Apple confirms the second generation of its spatial computing headset will feature the M4 Ultra chip and dramatically improved battery life.'},ar:{title:'تأكيد Apple Vision Pro 2 — شريحة M4 Ultra وبطارية طوال اليوم',desc:'تؤكد Apple أن الجيل الثاني من سماعة الحوسبة المكانية ستضم شريحة M4 Ultra وعمر بطارية أفضل بكثير.'}},
+  {cat:'ai',icon:'🎨',date:'Feb 22, 2025',dateAr:'22 فبراير 2025',en:{title:'Midjourney V7 Launches with Photorealistic Human Faces and Video',desc:'The newest Midjourney model achieves near-perfect photorealism and introduces video generation for the first time.'},ar:{title:'إطلاق Midjourney V7 بوجوه بشرية فوتوغرافية وفيديو',desc:'أحدث نموذج Midjourney يحقق واقعية فوتوغرافية شبه مثالية ويُقدّم توليد الفيديو لأول مرة.'}},
+  {cat:'programming',icon:'🦀',date:'Feb 20, 2025',dateAr:'20 فبراير 2025',en:{title:'Rust Language Becomes Official in Linux Kernel — A New Era Begins',desc:'The Linux kernel officially adopts Rust as a second implementation language alongside C, improving memory safety in the world\'s most used OS.'},ar:{title:'لغة Rust تصبح رسمية في نواة Linux — بداية حقبة جديدة',desc:'تعتمد نواة Linux رسميًا Rust كلغة تنفيذ ثانية جانب C، مما يُحسّن أمان الذاكرة في أكثر أنظمة التشغيل استخدامًا في العالم.'}},
+  {cat:'tech',icon:'⚡',date:'Feb 18, 2025',dateAr:'18 فبراير 2025',en:{title:'NVIDIA Blackwell Ultra GPU Smashes AI Training Benchmark Records',desc:'NVIDIA\'s latest data center GPU achieves 10x the AI training performance of its predecessor, reshaping the AI infrastructure landscape.'},ar:{title:'GPU NVIDIA Blackwell Ultra يحطم أرقام قياسية لتدريب الذكاء الاصطناعي',desc:'أحدث GPU مركز بيانات من NVIDIA يحقق أداءً في تدريب الذكاء الاصطناعي أفضل بـ 10 مرات من سابقه.'}},
+  {cat:'cyber',icon:'🔐',date:'Feb 15, 2025',dateAr:'15 فبراير 2025',en:{title:'NIST Releases Final Post-Quantum Cryptography Standards',desc:'The National Institute of Standards and Technology finalizes three post-quantum cryptographic algorithms to protect against future quantum attacks.'},ar:{title:'NIST تُصدر معايير التشفير ما بعد الكمي النهائية',desc:'يُنهي المعهد الوطني للمعايير والتكنولوجيا ثلاثة خوارزميات تشفير ما بعد الكمي للحماية من الهجمات الكمية المستقبلية.'}},
+];
+
+const catLabels = {
+  all:{en:'ALL',ar:'الكل'},
+  tech:{en:'TECH',ar:'تقنية'},
+  programming:{en:'PROGRAMMING',ar:'برمجة'},
+  cyber:{en:'CYBERSECURITY',ar:'أمن سيبراني'},
+  ai:{en:'AI',ar:'ذكاء اصطناعي'},
+};
+
+let currentCat = 'all';
+let currentSearch = '';
+
+function isAR() { return document.body.classList.contains('ar'); }
+
+function renderNews() {
+  const lang = isAR() ? 'ar' : 'en';
+  const grid = document.getElementById('newsGrid');
+  const filtered = allNews.filter(n => {
+    const catOk = currentCat === 'all' || n.cat === currentCat;
+    const q = currentSearch.toLowerCase();
+    const textOk = !q || n[lang].title.toLowerCase().includes(q) || n[lang].desc.toLowerCase().includes(q);
+    return catOk && textOk;
+  });
+
+  document.getElementById('newsCount').textContent = isAR()
+    ? `${filtered.length} خبر`
+    : `${filtered.length} articles`;
+
+  grid.innerHTML = filtered.map(n => {
+    const d = n[lang];
+    const cat = catLabels[n.cat]?.[lang] || n.cat;
+    const date = isAR() ? n.dateAr : n.date;
+    return `<div class="news-card fade-up">
+      <div class="news-card-thumb">${n.icon}
+        <div class="news-card-cat">${cat}</div>
+      </div>
+      <div class="news-card-body">
+        <div class="news-card-title">${d.title}</div>
+        <div class="news-card-date">${date}</div>
+        <div class="news-card-desc">${d.desc}</div>
+        <a href="#" class="btn-read">${isAR()?'اقرأ المزيد ←':'READ MORE →'}</a>
+      </div>
+    </div>`;
+  }).join('');
+  initFadeUp();
+}
+
+document.getElementById('filterTabs').addEventListener('click', e => {
+  const btn = e.target.closest('.filter-tab');
+  if (!btn) return;
+  document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentCat = btn.dataset.cat;
+  renderNews();
+});
+
+document.getElementById('newsSearch').addEventListener('input', e => {
+  currentSearch = e.target.value;
+  renderNews();
+});
+
+// Re-render on lang
+const origApply = window.applyLang;
+window.applyLang = lang => {
+  origApply && origApply(lang);
+  const isAr = lang === 'ar';
+  const si = document.getElementById('newsSearch');
+  if (si) si.placeholder = isAr ? 'ابحث في الأخبار...' : 'Search news...';
+  document.querySelectorAll('.filter-tab[data-en]').forEach(b => {
+    b.textContent = isAr ? b.dataset.ar : b.dataset.en;
+  });
+  renderNews();
+};
+
+document.addEventListener('DOMContentLoaded', () => setTimeout(renderNews, 80));
+</script>
+</body>
+</html>

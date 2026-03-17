@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn Programming — CyberStack</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.roadmap-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:44px; }
+.tip-pills { display:flex; flex-wrap:wrap; gap:10px; }
+.tip-pill {
+  background:rgba(0,229,255,0.06); border:1px solid rgba(0,229,255,0.2);
+  border-radius:20px; padding:6px 15px;
+  font-family:'Share Tech Mono',monospace; font-size:0.72rem; color:var(--cyan);
+}
+.resource-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:18px; margin-top:44px; }
+.resource-card {
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg);
+  padding:22px; transition:all 0.3s;
+}
+.resource-card:hover { border-color:var(--border-bright); box-shadow:var(--glow); transform:translateY(-3px); }
+.resource-icon { font-size:1.8rem; margin-bottom:10px; }
+.resource-name { font-family:'Orbitron',monospace; font-size:0.85rem; font-weight:700; color:var(--white); margin-bottom:6px; }
+.resource-desc { font-size:0.8rem; color:var(--muted); line-height:1.6; }
+.resource-type { font-family:'Share Tech Mono',monospace; font-size:0.65rem; letter-spacing:2px; color:var(--green); margin-top:8px; }
+.myth-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.myth-card {
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:22px;
+}
+.myth-false { font-family:'Share Tech Mono',monospace; font-size:0.68rem; color:#ff6b6b; letter-spacing:2px; margin-bottom:8px; }
+.myth-title { font-size:0.93rem; font-weight:700; color:var(--muted); margin-bottom:10px; text-decoration:line-through; opacity:0.6; }
+.myth-truth { font-size:0.85rem; color:var(--white); }
+@media(max-width:768px){.roadmap-grid,.myth-row{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-content">
+
+<div class="breadcrumb">
+  <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+  <span>›</span>
+  <span data-en="Learn Programming" data-ar="تعلم البرمجة">Learn Programming</span>
+</div>
+
+<div class="page-hero" data-tag="// ROADMAP">
+  <h1><span class="en-only">How to <span class="hl">Learn</span> Programming</span><span class="ar-only" style="display:none">كيف <span class="hl">تتعلم</span> البرمجة</span></h1>
+  <p class="en-only">A complete, honest, beginner-friendly roadmap. No fluff — just what actually works.</p>
+  <p class="ar-only" style="display:none">خارطة طريق كاملة وصادقة وسهلة للمبتدئين. بدون حشو — فقط ما يعمل فعلًا.</p>
+</div>
+
+<!-- INTRO -->
+<section class="section">
+  <div class="container-md">
+    <div class="fade-up centered">
+      <span class="tag-label" data-en="// THE TRUTH" data-ar="// الحقيقة">// THE TRUTH</span>
+      <h2 class="section-title"><span class="en-only">Learning to Code is <span class="hl">Hard — And That's OK</span></span><span class="ar-only" style="display:none">تعلّم البرمجة <span class="hl">صعب — وهذا طبيعي</span></span></h2>
+      <div class="neon-divider"></div>
+      <p class="section-desc en-only">Anyone who tells you programming is easy in 30 days is lying to you. It takes time, practice, and discipline. But with the right approach, every beginner can become a skilled developer. This roadmap will show you exactly how.</p>
+      <p class="section-desc ar-only" style="display:none">من يخبرك أن البرمجة سهلة خلال 30 يومًا يكذب عليك. تستغرق وقتًا وممارسة وانضباطًا. لكن مع النهج الصحيح، يمكن لكل مبتدئ أن يصبح مطورًا متمكنًا. ستوضح لك هذه الخارطة كيف بالضبط.</p>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- ROADMAP -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="fade-up">
+      <span class="tag-label" data-en="// STEP BY STEP" data-ar="// خطوة بخطوة">// STEP BY STEP</span>
+      <h2 class="section-title"><span class="en-only">The <span class="hl">Roadmap</span></span><span class="ar-only" style="display:none">خارطة <span class="hl">الطريق</span></span></h2>
+      <div class="neon-divider"></div>
+    </div>
+    <div class="roadmap-grid">
+      <div class="step-card fade-up">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <div class="step-title" data-en="Choose Your Field" data-ar="اختر مجالك">Choose Your Field</div>
+          <div class="step-desc" data-en="Don't start learning randomly. Pick one field — web, mobile, AI, or cybersecurity — and focus on it. Generalism comes later. Commitment comes first. Use the Specialties page to explore what excites you." data-ar="لا تبدأ التعلم بشكل عشوائي. اختر مجالًا واحدًا — الويب أو الموبايل أو الذكاء الاصطناعي أو الأمن السيبراني — وركّز عليه. التخصص الأوسع يأتي لاحقًا. الالتزام يأتي أولًا.">Don't start learning randomly. Pick one field — web, mobile, AI, or cybersecurity — and focus on it. Generalism comes later. Commitment comes first. Use the Specialties page to explore what excites you.</div>
+        </div>
+      </div>
+      <div class="step-card fade-up" style="transition-delay:0.07s">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <div class="step-title" data-en="Learn the Fundamentals" data-ar="تعلّم الأساسيات">Learn the Fundamentals</div>
+          <div class="step-desc" data-en="Start with programming basics: variables, data types, loops, functions, conditionals, and logic. These are universal. Every programming language uses them. Skip them and you'll regret it." data-ar="ابدأ بأساسيات البرمجة: المتغيرات وأنواع البيانات والحلقات والدوال والشروط والمنطق. هذه أساسيات شاملة. كل لغة برمجة تستخدمها. تجاوزها وستندم.">Start with programming basics: variables, data types, loops, functions, conditionals, and logic. These are universal. Every programming language uses them. Skip them and you'll regret it.</div>
+        </div>
+      </div>
+      <div class="step-card fade-up" style="transition-delay:0.1s">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <div class="step-title" data-en="Pick Your First Language" data-ar="اختر لغتك الأولى">Pick Your First Language</div>
+          <div class="step-desc" data-en="Python for AI/Data/Beginners. JavaScript for web. Swift or Kotlin for mobile. C# for games. Choose based on your field, not hype. The language matters less than you think — logic is universal." data-ar="Python للذكاء الاصطناعي/البيانات/المبتدئين. JavaScript للويب. Swift أو Kotlin للموبايل. C# للألعاب. اختر بناءً على مجالك وليس الشهرة. اللغة أقل أهمية مما تعتقد — المنطق شامل.">Python for AI/Data/Beginners. JavaScript for web. Swift or Kotlin for mobile. C# for games. Choose based on your field, not hype. The language matters less than you think — logic is universal.</div>
+        </div>
+      </div>
+      <div class="step-card fade-up" style="transition-delay:0.14s">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <div class="step-title" data-en="Practice Every Single Day" data-ar="مارس كل يوم بدون استثناء">Practice Every Single Day</div>
+          <div class="step-desc" data-en="30 minutes daily beats 5 hours once a week. Your brain needs repetition to wire new skills. Solve small coding challenges, rewrite tutorials, experiment. The goal is daily contact with code." data-ar="30 دقيقة يوميًا أفضل من 5 ساعات مرة في الأسبوع. يحتاج عقلك إلى التكرار لاكتساب المهارات الجديدة. حل تحديات برمجية صغيرة، أعد كتابة الدروس، جرّب. الهدف هو التواصل اليومي مع الكود.">30 minutes daily beats 5 hours once a week. Your brain needs repetition to wire new skills. Solve small coding challenges, rewrite tutorials, experiment. The goal is daily contact with code.</div>
+        </div>
+      </div>
+      <div class="step-card fade-up" style="transition-delay:0.17s">
+        <div class="step-num">05</div>
+        <div class="step-content">
+          <div class="step-title" data-en="Build Real Projects" data-ar="ابنِ مشاريع حقيقية">Build Real Projects</div>
+          <div class="step-desc" data-en="This is where real learning happens. Build a to-do app. Build a weather app. Build a portfolio site. Build things that matter to you. Projects teach what tutorials can't — problem-solving." data-ar="هنا يحدث التعلم الحقيقي. ابنِ تطبيق مهام. ابنِ تطبيق طقس. ابنِ موقع محفظة. ابنِ أشياء تهمك. المشاريع تُعلّم ما لا تستطيع الدروس تعليمه — حل المشكلات.">This is where real learning happens. Build a to-do app. Build a weather app. Build a portfolio site. Build things that matter to you. Projects teach what tutorials can't — problem-solving.</div>
+        </div>
+      </div>
+      <div class="step-card fade-up" style="transition-delay:0.2s">
+        <div class="step-num">06</div>
+        <div class="step-content">
+          <div class="step-title" data-en="Read Official Documentation" data-ar="اقرأ التوثيقات الرسمية">Read Official Documentation</div>
+          <div class="step-desc" data-en="Docs are the primary source of truth. YouTube is great for starting, but the official docs of any language or framework contain everything you need. Learning to read docs is a superpower." data-ar="التوثيقات هي المصدر الأساسي للحقيقة. YouTube رائع للبداية، لكن التوثيقات الرسمية لأي لغة أو إطار عمل تحتوي على كل ما تحتاجه. تعلّم قراءة التوثيقات هي قوة خارقة.">Docs are the primary source of truth. YouTube is great for starting, but the official docs of any language or framework contain everything you need. Learning to read docs is a superpower.</div>
+        </div>
+      </div>
+      <div class="step-card fade-up" style="transition-delay:0.23s">
+        <div class="step-num">07</div>
+        <div class="step-content">
+          <div class="step-title" data-en="Join a Community" data-ar="انضم إلى مجتمع">Join a Community</div>
+          <div class="step-desc" data-en="Learning alone is slow and lonely. Join Discord servers, forums, and groups. Ask questions without shame. Help others when you can — teaching is the best way to solidify your own knowledge." data-ar="التعلم وحيدًا بطيء ومنعزل. انضم إلى سيرفرات Discord والمنتديات والمجموعات. اطرح الأسئلة بدون خجل. ساعد الآخرين عندما تستطيع — التدريس هو أفضل طريقة لترسيخ معرفتك.">Learning alone is slow and lonely. Join Discord servers, forums, and groups. Ask questions without shame. Help others when you can — teaching is the best way to solidify your own knowledge.</div>
+        </div>
+      </div>
+      <div class="step-card fade-up" style="transition-delay:0.26s">
+        <div class="step-num">08</div>
+        <div class="step-content">
+          <div class="step-title" data-en="Stay Consistent — Always" data-ar="ابقَ متواصلًا — دائمًا">Stay Consistent — Always</div>
+          <div class="step-desc" data-en="Motivation dies. Discipline wins. Set up a routine, track your progress, celebrate small wins. You will hit walls. Push through. Every expert programmer was once completely lost exactly like you are now." data-ar="الحافز يموت. الانضباط ينتصر. أنشئ روتينًا وتتبع تقدمك واحتفل بالإنجازات الصغيرة. ستصطدم بعقبات. تجاوزها. كل مبرمج خبير كان في يوم ما ضائعًا تمامًا مثلما أنت الآن.">Motivation dies. Discipline wins. Set up a routine, track your progress, celebrate small wins. You will hit walls. Push through. Every expert programmer was once completely lost exactly like you are now.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- BEGINNER TIPS -->
+<section class="section">
+  <div class="container">
+    <div class="fade-up">
+      <span class="tag-label" data-en="// BEGINNER TIPS" data-ar="// نصائح للمبتدئين">// BEGINNER TIPS</span>
+      <h2 class="section-title"><span class="en-only">Tips That Actually <span class="hl">Help</span></span><span class="ar-only" style="display:none">نصائح <span class="hl">تفيد فعلًا</span></span></h2>
+      <div class="neon-divider"></div>
+    </div>
+    <div class="tip-pills fade-up" style="margin-top:28px">
+      <span class="tip-pill" data-en="Google errors, don't panic" data-ar="ابحث عن الأخطاء، لا تتذعر">Google errors, don't panic</span>
+      <span class="tip-pill" data-en="Type code, don't copy-paste" data-ar="اكتب الكود، لا تنسخ وتلصق">Type code, don't copy-paste</span>
+      <span class="tip-pill" data-en="Errors are teachers" data-ar="الأخطاء معلمون">Errors are teachers</span>
+      <span class="tip-pill" data-en="Build, don't just watch" data-ar="ابنِ، لا تكتفِ بالمشاهدة">Build, don't just watch</span>
+      <span class="tip-pill" data-en="One language at a time" data-ar="لغة واحدة في كل مرة">One language at a time</span>
+      <span class="tip-pill" data-en="Take breaks, rest matters" data-ar="خذ استراحات، الراحة مهمة">Take breaks, rest matters</span>
+      <span class="tip-pill" data-en="Ask questions freely" data-ar="اطرح الأسئلة بحرية">Ask questions freely</span>
+      <span class="tip-pill" data-en="Review old code monthly" data-ar="راجع كودك القديم شهريًا">Review old code monthly</span>
+      <span class="tip-pill" data-en="Help others — it teaches you" data-ar="ساعد الآخرين — فهو يعلّمك">Help others — it teaches you</span>
+      <span class="tip-pill" data-en="Celebrate small wins" data-ar="احتفل بالإنجازات الصغيرة">Celebrate small wins</span>
+      <span class="tip-pill" data-en="Don't memorize — understand" data-ar="لا تحفظ — افهم">Don't memorize — understand</span>
+      <span class="tip-pill" data-en="Your pace is fine" data-ar="وتيرتك جيدة">Your pace is fine</span>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- MYTH BUSTERS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="fade-up centered">
+      <span class="tag-label" data-en="// MYTH BUSTERS" data-ar="// تفنيد الأساطير">// MYTH BUSTERS</span>
+      <h2 class="section-title"><span class="en-only">Stop Believing These <span class="hl">Myths</span></span><span class="ar-only" style="display:none">توقف عن تصديق هذه <span class="hl">الأساطير</span></span></h2>
+      <div class="neon-divider"></div>
+    </div>
+    <div class="myth-row fade-up" style="margin-top:40px">
+      <div class="myth-card">
+        <div class="myth-false" data-en="❌ FALSE" data-ar="❌ خاطئ">❌ FALSE</div>
+        <div class="myth-title" data-en="You need a CS degree" data-ar="تحتاج شهادة علوم الحاسوب">You need a CS degree</div>
+        <div class="myth-truth" data-en="The most successful developers are self-taught. What matters is your portfolio and skills — not your diploma." data-ar="أنجح المطورين تعلّموا ذاتيًا. ما يهم هو محفظة أعمالك ومهاراتك — وليس شهادتك.">The most successful developers are self-taught. What matters is your portfolio and skills — not your diploma.</div>
+      </div>
+      <div class="myth-card">
+        <div class="myth-false" data-en="❌ FALSE" data-ar="❌ خاطئ">❌ FALSE</div>
+        <div class="myth-title" data-en="You need to be good at math" data-ar="تحتاج أن تكون جيدًا في الرياضيات">You need to be good at math</div>
+        <div class="myth-truth" data-en="Most web and app development requires basic logic, not advanced math. Only specific fields like AI or graphics need deep mathematics." data-ar="معظم تطوير الويب والتطبيقات يتطلب منطقًا أساسيًا، وليس رياضيات متقدمة. فقط مجالات محددة كالذكاء الاصطناعي أو الرسومات تحتاج رياضيات عميقة.">Most web and app development requires basic logic, not advanced math. Only specific fields like AI or graphics need deep mathematics.</div>
+      </div>
+      <div class="myth-card">
+        <div class="myth-false" data-en="❌ FALSE" data-ar="❌ خاطئ">❌ FALSE</div>
+        <div class="myth-title" data-en="You can learn it in 30 days" data-ar="يمكنك تعلمها في 30 يومًا">You can learn it in 30 days</div>
+        <div class="myth-truth" data-en="Those courses sell dreams. Real proficiency takes 6–18 months of consistent practice. But every day you code, you get better than the day before." data-ar="تلك الدورات تبيع الأحلام. الكفاءة الحقيقية تستغرق 6–18 شهرًا من الممارسة المتواصلة. لكن كل يوم تكتب فيه كودًا، تصبح أفضل من أمس.">Those courses sell dreams. Real proficiency takes 6–18 months of consistent practice. But every day you code, you get better than the day before.</div>
+      </div>
+      <div class="myth-card">
+        <div class="myth-false" data-en="❌ FALSE" data-ar="❌ خاطئ">❌ FALSE</div>
+        <div class="myth-title" data-en="You're too old to start" data-ar="أنت كبير جدًا للبدء">You're too old to start</div>
+        <div class="myth-truth" data-en="Age is irrelevant. People learn to code successfully at 40, 50, even 60. The only thing stopping you is the belief that it's too late." data-ar="العمر غير ذي صلة. يتعلم الناس البرمجة بنجاح في سن الأربعين والخمسين وحتى الستين. الشيء الوحيد الذي يوقفك هو الاعتقاد بأن الوقت قد فات.">Age is irrelevant. People learn to code successfully at 40, 50, even 60. The only thing stopping you is the belief that it's too late.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- RESOURCES -->
+<section class="section">
+  <div class="container">
+    <div class="fade-up centered">
+      <span class="tag-label" data-en="// RESOURCES" data-ar="// المصادر">// RESOURCES</span>
+      <h2 class="section-title"><span class="en-only">Where to <span class="hl">Learn</span></span><span class="ar-only" style="display:none">أين <span class="hl">تتعلم</span></span></h2>
+      <div class="neon-divider"></div>
+    </div>
+    <div class="resource-row fade-up">
+      <div class="resource-card"><div class="resource-icon">🎬</div><div class="resource-name">YouTube</div><div class="resource-desc" data-en="Free, extensive programming tutorials in every language and framework imaginable." data-ar="دروس برمجة مجانية وشاملة في كل لغة وإطار عمل يمكن تخيله.">Free, extensive programming tutorials in every language and framework imaginable.</div><div class="resource-type" data-en="FREE PLATFORM" data-ar="منصة مجانية">FREE PLATFORM</div></div>
+      <div class="resource-card"><div class="resource-icon">📚</div><div class="resource-name">freeCodeCamp</div><div class="resource-desc" data-en="Structured curriculum covering web development, data science, and more. All free." data-ar="منهج منظم يغطي تطوير الويب وعلم البيانات وأكثر. كله مجاني.">Structured curriculum covering web development, data science, and more. All free.</div><div class="resource-type" data-en="FREE PLATFORM" data-ar="منصة مجانية">FREE PLATFORM</div></div>
+      <div class="resource-card"><div class="resource-icon">🐍</div><div class="resource-name">CS50 (Harvard)</div><div class="resource-desc" data-en="The world's most popular intro to computer science. Free, rigorous, and excellent." data-ar="أشهر مقدمة للعلوم الحاسوبية في العالم. مجانية وصارمة وممتازة.">The world's most popular intro to computer science. Free, rigorous, and excellent.</div><div class="resource-type" data-en="FREE COURSE" data-ar="دورة مجانية">FREE COURSE</div></div>
+      <div class="resource-card"><div class="resource-icon">🏋️</div><div class="resource-name">LeetCode / HackerRank</div><div class="resource-desc" data-en="Practice coding challenges to sharpen your problem-solving skills." data-ar="تدرّب على تحديات البرمجة لتحسين مهاراتك في حل المشكلات.">Practice coding challenges to sharpen your problem-solving skills.</div><div class="resource-type" data-en="PRACTICE PLATFORM" data-ar="منصة تدريب">PRACTICE PLATFORM</div></div>
+      <div class="resource-card"><div class="resource-icon">📖</div><div class="resource-name">Official Docs</div><div class="resource-desc" data-en="MDN for web, Python.org for Python, docs.microsoft.com for .NET. Always the truth." data-ar="MDN للويب، Python.org للبايثون، docs.microsoft.com لـ .NET. دائمًا هي الحقيقة.">MDN for web, Python.org for Python, docs.microsoft.com for .NET. Always the truth.</div><div class="resource-type" data-en="REFERENCE" data-ar="مرجع">REFERENCE</div></div>
+      <div class="resource-card"><div class="resource-icon">💬</div><div class="resource-name">CyberStack Discord</div><div class="resource-desc" data-en="Our community. Ask questions, get mentorship, share your projects, and grow faster." data-ar="مجتمعنا. اطرح أسئلتك، احصل على إرشاد، شارك مشاريعك، وانمُ بشكل أسرع.">Our community. Ask questions, get mentorship, share your projects, and grow faster.</div><div class="resource-type" data-en="COMMUNITY" data-ar="مجتمع">COMMUNITY</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- CTA -->
+<section class="section section-alt2 centered">
+  <div class="container-sm fade-up">
+    <span class="tag-label" data-en="// NEXT STEP" data-ar="// الخطوة التالية">// NEXT STEP</span>
+    <h2 class="section-title"><span class="en-only">Choose Your <span class="hl">Specialty</span></span><span class="ar-only" style="display:none">اختر <span class="hl">تخصصك</span></span></h2>
+    <div class="neon-divider"></div>
+    <p class="section-desc en-only">Now that you know how to learn, it's time to pick what to learn. Explore all programming specialties and find your path.</p>
+    <p class="section-desc ar-only" style="display:none">الآن بعد أن عرفت كيف تتعلم، حان الوقت لاختيار ما تتعلمه. استكشف جميع التخصصات وابحث عن مسارك.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px;">
+      <a href="specialties.html" class="btn btn-primary btn-lg" data-en="🎯 View Specialties" data-ar="🎯 استعرض التخصصات">🎯 View Specialties</a>
+      <a href="discord.html" class="btn btn-outline" data-en="Join Community" data-ar="انضم إلى المجتمع">Join Community</a>
+    </div>
+  </div>
+</section>
+
+</div>
+<div id="footer-placeholder"></div>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technology — CyberStack</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.tech-hero-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:22px; margin-top:44px; }
+.tech-big-card {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius-lg); padding:28px; transition:all 0.3s;
+  position:relative; overflow:hidden;
+}
+.tech-big-card::after {
+  content:''; position:absolute;
+  top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--green),var(--cyan));
+  opacity:0;transition:opacity 0.3s;
+}
+.tech-big-card:hover { border-color:var(--border-bright); box-shadow:var(--glow); transform:translateY(-4px); }
+.tech-big-card:hover::after { opacity:1; }
+.tbc-icon { font-size:2.8rem; margin-bottom:14px; }
+.tbc-title { font-family:'Orbitron',monospace; font-size:1rem; font-weight:700; color:var(--white); margin-bottom:10px; }
+.tbc-desc { font-size:0.87rem; color:var(--muted); line-height:1.7; margin-bottom:16px; }
+.tbc-items { list-style:none; display:flex; flex-direction:column; gap:6px; }
+.tbc-items li { font-size:0.82rem; color:var(--muted); display:flex; align-items:center; gap:8px; }
+body.ar .tbc-items li { flex-direction:row-reverse; }
+.tbc-items li::before { content:'▸'; color:var(--green); font-size:0.75rem; flex-shrink:0; }
+body.ar .tbc-items li::before { content:'◂'; }
+
+.trend-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; margin-top:44px; }
+.trend-card {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius-lg); padding:20px; text-align:center;
+  transition:all 0.3s;
+}
+.trend-card:hover { border-color:var(--border-bright); box-shadow:var(--glow); transform:translateY(-3px); }
+.trend-icon { font-size:2.2rem; margin-bottom:10px; }
+.trend-name { font-family:'Orbitron',monospace; font-size:0.82rem; font-weight:700; color:var(--white); margin-bottom:6px; }
+.trend-desc { font-size:0.78rem; color:var(--muted); line-height:1.6; }
+.trend-heat { font-family:'Share Tech Mono',monospace; font-size:0.65rem; color:var(--green); margin-top:8px; }
+
+.platform-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:14px; margin-top:40px; }
+.platform-pill {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:var(--radius-lg); padding:16px; text-align:center;
+  transition:all 0.3s;
+}
+.platform-pill:hover { border-color:var(--border-bright); box-shadow:var(--glow); }
+.pp-icon { font-size:1.8rem; margin-bottom:8px; }
+.pp-name { font-size:0.85rem; font-weight:700; color:var(--white); }
+.pp-type { font-family:'Share Tech Mono',monospace; font-size:0.62rem; color:var(--cyan); margin-top:4px; }
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-content">
+
+<div class="breadcrumb">
+  <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+  <span>›</span>
+  <span data-en="Technology" data-ar="التقنية">Technology</span>
+</div>
+
+<div class="page-hero" data-tag="// TECH WORLD">
+  <h1><span class="en-only">The World of <span class="hl-c">Technology</span></span><span class="ar-only" style="display:none">عالم <span class="hl-c">التكنولوجيا</span></span></h1>
+  <p class="en-only">Stay ahead with the latest in AI tools, gadgets, software, productivity, and the trends shaping tomorrow.</p>
+  <p class="ar-only" style="display:none">ابقَ في المقدمة مع أحدث أدوات الذكاء الاصطناعي والأجهزة والبرامج والإنتاجية والاتجاهات التي تُشكّل الغد.</p>
+</div>
+
+<!-- MAIN TOPICS -->
+<section class="section">
+  <div class="container">
+    <div class="fade-up">
+      <span class="tag-label" data-en="// TOPICS" data-ar="// المواضيع">// TOPICS</span>
+      <h2 class="section-title"><span class="en-only">Explore <span class="hl">Technology</span></span><span class="ar-only" style="display:none">استكشف <span class="hl">التكنولوجيا</span></span></h2>
+      <div class="neon-divider"></div>
+    </div>
+    <div class="tech-hero-grid">
+      <div class="tech-big-card fade-up">
+        <div class="tbc-icon">🤖</div>
+        <div class="tbc-title" data-en="AI Tools" data-ar="أدوات الذكاء الاصطناعي">AI Tools</div>
+        <div class="tbc-desc" data-en="Artificial intelligence tools are transforming every profession. From writing to coding to design, AI is your new co-worker." data-ar="أدوات الذكاء الاصطناعي تُحوّل كل مهنة. من الكتابة إلى البرمجة إلى التصميم، الذكاء الاصطناعي هو زميلك الجديد.">Artificial intelligence tools are transforming every profession. From writing to coding to design, AI is your new co-worker.</div>
+        <ul class="tbc-items">
+          <li>ChatGPT / GPT-4o — Conversational AI</li>
+          <li>Claude — Advanced reasoning AI</li>
+          <li>Midjourney — AI image generation</li>
+          <li>GitHub Copilot — AI coding assistant</li>
+          <li>Perplexity — AI-powered search</li>
+          <li>Runway — AI video generation</li>
+        </ul>
+      </div>
+      <div class="tech-big-card fade-up" style="transition-delay:0.08s">
+        <div class="tbc-icon">💻</div>
+        <div class="tbc-title" data-en="Developer Software" data-ar="برامج المطورين">Developer Software</div>
+        <div class="tbc-desc" data-en="The tools every developer uses daily — editors, version control, terminals, and the software that powers modern development." data-ar="الأدوات التي يستخدمها كل مطور يوميًا — المحررات والتحكم في الإصدار والطرفيات والبرامج التي تُشغّل التطوير الحديث.">The tools every developer uses daily — editors, version control, terminals, and the software that powers modern development.</div>
+        <ul class="tbc-items">
+          <li>VS Code — Most popular code editor</li>
+          <li>Git & GitHub — Version control</li>
+          <li>Docker — Containerization</li>
+          <li>Postman — API testing</li>
+          <li>Figma — UI/UX design</li>
+          <li>Linear — Project management</li>
+        </ul>
+      </div>
+      <div class="tech-big-card fade-up" style="transition-delay:0.12s">
+        <div class="tbc-icon">⚡</div>
+        <div class="tbc-title" data-en="Productivity Tools" data-ar="أدوات الإنتاجية">Productivity Tools</div>
+        <div class="tbc-desc" data-en="Work smarter, not harder. These tools help you organize, automate, and multiply your output — whether you're a student, developer, or creator." data-ar="اعمل بذكاء لا بجهد. هذه الأدوات تساعدك على التنظيم والأتمتة ومضاعفة إنتاجيتك — سواء كنت طالبًا أو مطورًا أو منشئ محتوى.">Work smarter, not harder. These tools help you organize, automate, and multiply your output — whether you're a student, developer, or creator.</div>
+        <ul class="tbc-items">
+          <li>Notion — Notes & knowledge base</li>
+          <li>Obsidian — Linked note-taking</li>
+          <li>Zapier / Make — Workflow automation</li>
+          <li>Raycast — Productivity launcher</li>
+          <li>Loom — Async video messaging</li>
+          <li>Todoist — Task management</li>
+        </ul>
+      </div>
+      <div class="tech-big-card fade-up" style="transition-delay:0.16s">
+        <div class="tbc-icon">📟</div>
+        <div class="tbc-title" data-en="Gadgets & Hardware" data-ar="الأجهزة والمعدات">Gadgets & Hardware</div>
+        <div class="tbc-desc" data-en="The physical devices powering the next generation of computing — from chips to headsets to wearables." data-ar="الأجهزة المادية التي تُشغّل الجيل القادم من الحوسبة — من الرقائق إلى سماعات الرأس إلى الأجهزة القابلة للارتداء.">The physical devices powering the next generation of computing — from chips to headsets to wearables.</div>
+        <ul class="tbc-items">
+          <li>Apple Silicon M4 — Chip revolution</li>
+          <li>Apple Vision Pro — Spatial computing</li>
+          <li>NVIDIA RTX 5090 — AI GPU powerhouse</li>
+          <li>Steam Deck OLED — Portable gaming</li>
+          <li>Meta Quest 3 — Consumer VR</li>
+          <li>Framework Laptop — Modular PC</li>
+        </ul>
+      </div>
+      <div class="tech-big-card fade-up" style="transition-delay:0.2s">
+        <div class="tbc-icon">🌐</div>
+        <div class="tbc-title" data-en="Digital Platforms" data-ar="المنصات الرقمية">Digital Platforms</div>
+        <div class="tbc-desc" data-en="The platforms every developer, creator, and tech professional should know — from cloud to code hosting to communities." data-ar="المنصات التي يجب أن يعرفها كل مطور ومنشئ محتوى ومحترف تقني — من السحابة إلى استضافة الكود إلى المجتمعات.">The platforms every developer, creator, and tech professional should know — from cloud to code hosting to communities.</div>
+        <ul class="tbc-items">
+          <li>GitHub — Code & open source</li>
+          <li>Vercel / Netlify — Web deployment</li>
+          <li>AWS / GCP / Azure — Cloud</li>
+          <li>Product Hunt — Tech launches</li>
+          <li>Hacker News — Tech discussions</li>
+          <li>Stack Overflow — Developer Q&A</li>
+        </ul>
+      </div>
+      <div class="tech-big-card fade-up" style="transition-delay:0.24s">
+        <div class="tbc-icon">🔮</div>
+        <div class="tbc-title" data-en="Future Technology" data-ar="تكنولوجيا المستقبل">Future Technology</div>
+        <div class="tbc-desc" data-en="The innovations that will define the next decade — quantum computing, AR/VR, Web3, and technologies that sound like science fiction today." data-ar="الابتكارات التي ستُعرّف العقد القادم — الحوسبة الكمية وAR/VR وWeb3 والتقنيات التي تبدو كخيال علمي اليوم.">The innovations that will define the next decade — quantum computing, AR/VR, Web3, and technologies that sound like science fiction today.</div>
+        <ul class="tbc-items">
+          <li>Quantum Computing — IBM, Google</li>
+          <li>Brain-Computer Interfaces — Neuralink</li>
+          <li>Spatial Computing — AR/VR/MR</li>
+          <li>Autonomous Vehicles — AI + robotics</li>
+          <li>Fusion Energy — Clean power</li>
+          <li>Space Tech — SpaceX, NASA</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- TRENDS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="fade-up centered">
+      <span class="tag-label" data-en="// HOT TRENDS 2025" data-ar="// الاتجاهات الساخنة 2025">// HOT TRENDS 2025</span>
+      <h2 class="section-title"><span class="en-only">What's <span class="hl">Trending</span> Right Now</span><span class="ar-only" style="display:none">ما الذي يتصدر <span class="hl">الاتجاهات</span> الآن</span></h2>
+      <div class="neon-divider"></div>
+    </div>
+    <div class="trend-row fade-up">
+      <div class="trend-card"><div class="trend-icon">🧠</div><div class="trend-name" data-en="AI Agents" data-ar="وكلاء الذكاء الاصطناعي">AI Agents</div><div class="trend-desc" data-en="Autonomous AI systems that act on your behalf." data-ar="أنظمة ذكاء اصطناعي مستقلة تتصرف نيابةً عنك.">Autonomous AI systems that act on your behalf.</div><div class="trend-heat">🔥🔥🔥🔥🔥 ULTRA HOT</div></div>
+      <div class="trend-card"><div class="trend-icon">🚗</div><div class="trend-name" data-en="Self-Driving Cars" data-ar="السيارات ذاتية القيادة">Self-Driving Cars</div><div class="trend-desc" data-en="Tesla FSD, Waymo, and others reaching mass market." data-ar="Tesla FSD وWaymo وغيرها تصل إلى السوق الشامل.">Tesla FSD, Waymo, and others reaching mass market.</div><div class="trend-heat">🔥🔥🔥🔥 VERY HOT</div></div>
+      <div class="trend-card"><div class="trend-icon">🌐</div><div class="trend-name" data-en="Edge Computing" data-ar="الحوسبة على الحافة">Edge Computing</div><div class="trend-desc" data-en="Processing data closer to the source, not the cloud." data-ar="معالجة البيانات بالقرب من المصدر لا من السحابة.">Processing data closer to the source, not the cloud.</div><div class="trend-heat">🔥🔥🔥 HOT</div></div>
+      <div class="trend-card"><div class="trend-icon">🔒</div><div class="trend-name" data-en="Zero Trust Security" data-ar="أمن عدم الثقة">Zero Trust Security</div><div class="trend-desc" data-en="Never trust, always verify — the new security model." data-ar="لا ثقة دائمًا تحقق — نموذج الأمان الجديد.">Never trust, always verify — the new security model.</div><div class="trend-heat">🔥🔥🔥🔥 VERY HOT</div></div>
+      <div class="trend-card"><div class="trend-icon">⚛️</div><div class="trend-name" data-en="Quantum Computing" data-ar="الحوسبة الكمية">Quantum Computing</div><div class="trend-desc" data-en="IBM and Google pushing quantum supremacy limits." data-ar="IBM وGoogle يدفعان حدود التفوق الكمي.">IBM and Google pushing quantum supremacy limits.</div><div class="trend-heat">🔥🔥🔥 EMERGING</div></div>
+      <div class="trend-card"><div class="trend-icon">🥽</div><div class="trend-name" data-en="Spatial Computing" data-ar="الحوسبة المكانية">Spatial Computing</div><div class="trend-desc" data-en="AR/VR/MR blending digital and physical worlds." data-ar="AR/VR/MR يمزج العوالم الرقمية والمادية.">AR/VR/MR blending digital and physical worlds.</div><div class="trend-heat">🔥🔥🔥🔥 GROWING</div></div>
+      <div class="trend-card"><div class="trend-icon">🦾</div><div class="trend-name" data-en="AI in Code" data-ar="الذكاء الاصطناعي في الكود">AI in Code</div><div class="trend-desc" data-en="GitHub Copilot, Cursor, and AI changing how devs work." data-ar="GitHub Copilot وCursor والذكاء الاصطناعي يغيران طريقة عمل المطورين.">GitHub Copilot, Cursor, and AI changing how devs work.</div><div class="trend-heat">🔥🔥🔥🔥🔥 ULTRA HOT</div></div>
+      <div class="trend-card"><div class="trend-icon">🔋</div><div class="trend-name" data-en="Green Tech" data-ar="التقنية الخضراء">Green Tech</div><div class="trend-desc" data-en="Sustainable computing and green software engineering." data-ar="الحوسبة المستدامة وهندسة البرامج الخضراء.">Sustainable computing and green software engineering.</div><div class="trend-heat">🔥🔥🔥 RISING</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- USEFUL PLATFORMS -->
+<section class="section">
+  <div class="container">
+    <div class="fade-up centered">
+      <span class="tag-label" data-en="// PLATFORMS" data-ar="// المنصات">// PLATFORMS</span>
+      <h2 class="section-title"><span class="en-only">Useful <span class="hl">Platforms</span> to Know</span><span class="ar-only" style="display:none"><span class="hl">منصات</span> مفيدة يجب معرفتها</span></h2>
+      <div class="neon-divider"></div>
+    </div>
+    <div class="platform-grid fade-up">
+      <div class="platform-pill"><div class="pp-icon">💻</div><div class="pp-name">GitHub</div><div class="pp-type" data-en="CODE HOSTING" data-ar="استضافة كود">CODE HOSTING</div></div>
+      <div class="platform-pill"><div class="pp-icon">▲</div><div class="pp-name">Vercel</div><div class="pp-type" data-en="DEPLOYMENT" data-ar="نشر">DEPLOYMENT</div></div>
+      <div class="platform-pill"><div class="pp-icon">☁️</div><div class="pp-name">AWS</div><div class="pp-type" data-en="CLOUD" data-ar="سحابة">CLOUD</div></div>
+      <div class="platform-pill"><div class="pp-icon">🐳</div><div class="pp-name">Docker Hub</div><div class="pp-type" data-en="CONTAINERS" data-ar="حاويات">CONTAINERS</div></div>
+      <div class="platform-pill"><div class="pp-icon">📊</div><div class="pp-name">Notion</div><div class="pp-type" data-en="PRODUCTIVITY" data-ar="إنتاجية">PRODUCTIVITY</div></div>
+      <div class="platform-pill"><div class="pp-icon">🎨</div><div class="pp-name">Figma</div><div class="pp-type" data-en="UI DESIGN" data-ar="تصميم واجهة">UI DESIGN</div></div>
+      <div class="platform-pill"><div class="pp-icon">🔍</div><div class="pp-name">Perplexity</div><div class="pp-type" data-en="AI SEARCH" data-ar="بحث ذكي">AI SEARCH</div></div>
+      <div class="platform-pill"><div class="pp-icon">🤖</div><div class="pp-name">ChatGPT</div><div class="pp-type" data-en="AI ASSISTANT" data-ar="مساعد ذكي">AI ASSISTANT</div></div>
+      <div class="platform-pill"><div class="pp-icon">📺</div><div class="pp-name">YouTube</div><div class="pp-type" data-en="LEARNING" data-ar="تعلّم">LEARNING</div></div>
+      <div class="platform-pill"><div class="pp-icon">💬</div><div class="pp-name">Discord</div><div class="pp-type" data-en="COMMUNITY" data-ar="مجتمع">COMMUNITY</div></div>
+      <div class="platform-pill"><div class="pp-icon">📦</div><div class="pp-name">npm</div><div class="pp-type" data-en="PACKAGES" data-ar="حزم">PACKAGES</div></div>
+      <div class="platform-pill"><div class="pp-icon">🏋️</div><div class="pp-name">LeetCode</div><div class="pp-type" data-en="PRACTICE" data-ar="تدريب">PRACTICE</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<section class="section section-alt centered">
+  <div class="container-sm fade-up">
+    <span class="tag-label" data-en="// STAY UPDATED" data-ar="// ابقَ على اطلاع">// STAY UPDATED</span>
+    <h2 class="section-title"><span class="en-only">Read the Latest <span class="hl">Tech News</span></span><span class="ar-only" style="display:none">اقرأ أحدث <span class="hl">أخبار التقنية</span></span></h2>
+    <div class="neon-divider"></div>
+    <p class="section-desc en-only">Stay informed with our curated tech and programming news — updated regularly with what matters most.</p>
+    <p class="section-desc ar-only" style="display:none">ابقَ على اطلاع بأخبار التقنية والبرمجة المنتقاة لدينا — تُحدَّث بانتظام بأهم ما يجري.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px;">
+      <a href="news.html" class="btn btn-primary btn-lg" data-en="📡 Read Tech News" data-ar="📡 اقرأ أخبار التقنية">📡 Read Tech News</a>
+      <a href="discord.html" class="btn btn-cyan" data-en="Join Tech Discussions" data-ar="انضم إلى نقاشات التقنية">Join Tech Discussions</a>
+    </div>
+  </div>
+</section>
+
+</div>
+<div id="footer-placeholder"></div>
+<script src="js/main.js"></script>
+</body>
+</html>

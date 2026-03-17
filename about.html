@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — CyberStack</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.about-intro { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.about-visual {
+  background:var(--card); border:1px solid var(--border-bright);
+  border-radius:var(--radius-lg); padding:36px; text-align:center;
+  box-shadow:var(--glow); position:relative; overflow:hidden;
+}
+.about-visual::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, var(--green), var(--cyan));
+}
+.av-logo { font-family:'Orbitron',monospace; font-size:2.8rem; font-weight:900; color:var(--green); text-shadow:var(--glow); margin-bottom:8px; }
+.av-tag { font-family:'Share Tech Mono',monospace; font-size:0.72rem; letter-spacing:4px; color:var(--cyan); margin-bottom:28px; }
+.av-stats { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.av-stat { background:rgba(124,255,79,0.04); border:1px solid var(--border); border-radius:var(--radius); padding:14px; }
+
+.mvg-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.mvg-card {
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:28px;
+  text-align:center; transition:all 0.3s;
+}
+.mvg-card:hover { border-color:var(--border-bright); box-shadow:var(--glow); transform:translateY(-4px); }
+.mvg-icon { font-size:2.5rem; margin-bottom:14px; }
+.mvg-title { font-family:'Orbitron',monospace; font-size:0.9rem; font-weight:700; color:var(--green); text-shadow:var(--glow); margin-bottom:10px; }
+.mvg-desc { font-size:0.85rem; color:var(--muted); line-height:1.7; }
+
+.team-note {
+  background:var(--card); border:1px solid rgba(0,229,255,0.2);
+  border-radius:var(--radius-lg); padding:32px;
+  position:relative; overflow:hidden;
+}
+.team-note::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,var(--cyan),transparent);
+}
+
+.value-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:16px; }
+.value-pill {
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg);
+  padding:18px; transition:all 0.2s;
+}
+.value-pill:hover { border-color:var(--border-bright); box-shadow:var(--glow); }
+.vp-icon { font-size:1.6rem; margin-bottom:8px; }
+.vp-name { font-family:'Orbitron',monospace; font-size:0.82rem; font-weight:700; color:var(--white); margin-bottom:4px; }
+.vp-desc { font-size:0.78rem; color:var(--muted); }
+
+@media(max-width:900px){ .about-intro,.mvg-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-content">
+
+<div class="breadcrumb">
+  <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+  <span>›</span>
+  <span data-en="About" data-ar="من نحن">About</span>
+</div>
+
+<div class="page-hero" data-tag="// WHO WE ARE">
+  <h1><span class="en-only">About <span class="hl">CyberStack</span></span><span class="ar-only" style="display:none">من نحن — <span class="hl">سايبرستاك</span></span></h1>
+  <p class="en-only">A bilingual community built by passionate developers and cybersecurity enthusiasts who believe knowledge should be free and accessible to everyone.</p>
+  <p class="ar-only" style="display:none">مجتمع ثنائي اللغة بُنِي من قِبل مطورين شغوفين وعشاق الأمن السيبراني يؤمنون بأن المعرفة يجب أن تكون مجانية ومتاحة للجميع.</p>
+</div>
+
+<!-- INTRO -->
+<section class="section">
+  <div class="container">
+    <div class="about-intro">
+      <div class="fade-up">
+        <span class="tag-label" data-en="// OUR STORY" data-ar="// قصتنا">// OUR STORY</span>
+        <h2 class="section-title"><span class="en-only">How <span class="hl">CyberStack</span> Started</span><span class="ar-only" style="display:none">كيف بدأت <span class="hl">سايبرستاك</span></span></h2>
+        <div class="neon-divider"></div>
+        <p class="section-desc en-only" style="margin-bottom:18px">CyberStack was born from a simple frustration: the Arabic-speaking tech world had no single, high-quality destination for programming education, cybersecurity discussions, and technology news — all in one place.</p>
+        <p class="section-desc ar-only" style="display:none;margin-bottom:18px">ولدت سايبرستاك من إحباط بسيط: لم يكن لعالم التقنية الناطق بالعربية وجهة واحدة عالية الجودة لتعليم البرمجة ونقاشات الأمن السيبراني وأخبار التقنية — كل ذلك في مكان واحد.</p>
+        <p class="section-desc en-only" style="margin-bottom:18px">So a group of developers, security researchers, and tech enthusiasts decided to build it. What started as a small Discord server in 2023 grew into a thriving community of 10,000+ members across 50+ countries.</p>
+        <p class="section-desc ar-only" style="display:none;margin-bottom:18px">لذا قررت مجموعة من المطورين والباحثين في مجال الأمن وعشاق التقنية بناءها. ما بدأ كسيرفر ديسكورد صغير عام 2023 نما ليصبح مجتمعًا مزدهرًا يضم +10,000 عضو عبر أكثر من 50 دولة.</p>
+        <p class="section-desc en-only">Today, CyberStack is the home for anyone who wants to learn programming, explore cybersecurity, stay updated with tech, and connect with people who share the same passion.</p>
+        <p class="section-desc ar-only" style="display:none">اليوم، سايبرستاك هي موطن كل من يريد تعلّم البرمجة واستكشاف الأمن السيبراني والبقاء على اطلاع بالتقنية والتواصل مع أشخاص يشاركونهم نفس الشغف.</p>
+      </div>
+      <div class="about-visual fade-up" style="transition-delay:0.15s">
+        <div class="av-logo">[CS]</div>
+        <div class="av-tag" data-en="CYBERSTACK COMMUNITY" data-ar="مجتمع سايبرستاك">CYBERSTACK COMMUNITY</div>
+        <div class="av-stats">
+          <div class="av-stat"><div class="stat-num" style="font-size:1.6rem">10K+</div><div class="stat-label" data-en="Members" data-ar="عضو">Members</div></div>
+          <div class="av-stat"><div class="stat-num" style="font-size:1.6rem;color:var(--cyan);text-shadow:var(--glow-cyan)">50+</div><div class="stat-label" data-en="Countries" data-ar="دولة">Countries</div></div>
+          <div class="av-stat"><div class="stat-num" style="font-size:1.6rem">2023</div><div class="stat-label" data-en="Founded" data-ar="التأسيس">Founded</div></div>
+          <div class="av-stat"><div class="stat-num" style="font-size:1.6rem;color:var(--lime)">2</div><div class="stat-label" data-en="Languages" data-ar="لغة">Languages</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- MISSION VISION GOALS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="fade-up centered">
+      <span class="tag-label" data-en="// MISSION & VISION" data-ar="// المهمة والرؤية">// MISSION & VISION</span>
+      <h2 class="section-title"><span class="en-only">What We <span class="hl">Stand For</span></span><span class="ar-only" style="display:none">ما نؤمن <span class="hl">به</span></span></h2>
+      <div class="neon-divider"></div>
+    </div>
+    <div class="mvg-grid fade-up" style="margin-top:44px">
+      <div class="mvg-card">
+        <div class="mvg-icon">🎯</div>
+        <div class="mvg-title" data-en="Our Mission" data-ar="مهمتنا">Our Mission</div>
+        <div class="mvg-desc" data-en="To democratize technology education — making world-class programming, cybersecurity, and tech knowledge accessible to every Arabic and English speaker, regardless of their background or budget." data-ar="تعميم تعليم التكنولوجيا — إتاحة معرفة عالمية المستوى في البرمجة والأمن السيبراني والتقنية لكل ناطق بالعربية والإنجليزية، بغض النظر عن خلفيته أو ميزانيته.">To democratize technology education — making world-class programming, cybersecurity, and tech knowledge accessible to every Arabic and English speaker, regardless of their background or budget.</div>
+      </div>
+      <div class="mvg-card">
+        <div class="mvg-icon">👁️</div>
+        <div class="mvg-title" data-en="Our Vision" data-ar="رؤيتنا">Our Vision</div>
+        <div class="mvg-desc" data-en="A world where every person — regardless of language, location, or socioeconomic status — has the tools, knowledge, and community support to become a technology creator and innovator." data-ar="عالم يمتلك فيه كل شخص — بغض النظر عن اللغة أو الموقع أو الوضع الاجتماعي الاقتصادي — الأدوات والمعرفة ودعم المجتمع ليصبح مبتكرًا في التكنولوجيا.">A world where every person — regardless of language, location, or socioeconomic status — has the tools, knowledge, and community support to become a technology creator and innovator.</div>
+      </div>
+      <div class="mvg-card">
+        <div class="mvg-icon">💡</div>
+        <div class="mvg-title" data-en="Our Goals" data-ar="أهدافنا">Our Goals</div>
+        <div class="mvg-desc" data-en="Build the largest bilingual tech community. Create comprehensive learning resources. Host events that inspire. And prove that Arabic-speaking developers can compete with — and lead — the world." data-ar="بناء أكبر مجتمع تقني ثنائي اللغة. إنشاء موارد تعليمية شاملة. تنظيم فعاليات ملهمة. وإثبات أن المطورين الناطقين بالعربية يمكنهم المنافسة والقيادة عالميًا.">Build the largest bilingual tech community. Create comprehensive learning resources. Host events that inspire. And prove that Arabic-speaking developers can compete with — and lead — the world.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- OUR VALUES -->
+<section class="section">
+  <div class="container">
+    <div class="fade-up centered">
+      <span class="tag-label" data-en="// OUR VALUES" data-ar="// قيمنا">// OUR VALUES</span>
+      <h2 class="section-title"><span class="en-only">What We <span class="hl">Believe</span></span><span class="ar-only" style="display:none">ما <span class="hl">نؤمن به</span></span></h2>
+      <div class="neon-divider"></div>
+    </div>
+    <div class="value-row fade-up" style="margin-top:40px">
+      <div class="value-pill"><div class="vp-icon">🆓</div><div class="vp-name" data-en="Knowledge is Free" data-ar="المعرفة حرة">Knowledge is Free</div><div class="vp-desc" data-en="Information should never be locked behind paywalls." data-ar="المعلومات يجب ألا تكون خلف حواجز دفع.">Information should never be locked behind paywalls.</div></div>
+      <div class="value-pill"><div class="vp-icon">🌐</div><div class="vp-name" data-en="Language Inclusivity" data-ar="الشمولية اللغوية">Language Inclusivity</div><div class="vp-desc" data-en="Tech education in your language is a right, not a luxury." data-ar="التعليم التقني بلغتك حق وليس رفاهية.">Tech education in your language is a right, not a luxury.</div></div>
+      <div class="value-pill"><div class="vp-icon">🤝</div><div class="vp-name" data-en="Community First" data-ar="المجتمع أولًا">Community First</div><div class="vp-desc" data-en="We grow together. No one gets left behind." data-ar="ننمو معًا. لا يُترك أحد خلف.">We grow together. No one gets left behind.</div></div>
+      <div class="value-pill"><div class="vp-icon">🔒</div><div class="vp-name" data-en="Ethical Technology" data-ar="التكنولوجيا الأخلاقية">Ethical Technology</div><div class="vp-desc" data-en="We teach hacking to defend, never to attack." data-ar="نُعلّم الاختراق للدفاع وليس للهجوم.">We teach hacking to defend, never to attack.</div></div>
+      <div class="value-pill"><div class="vp-icon">🚀</div><div class="vp-name" data-en="Action Over Talk" data-ar="الفعل لا الكلام">Action Over Talk</div><div class="vp-desc" data-en="Build things. Ship code. Make it real." data-ar="ابنِ أشياء. اشحن كودًا. اجعلها حقيقية.">Build things. Ship code. Make it real.</div></div>
+      <div class="value-pill"><div class="vp-icon">📈</div><div class="vp-name" data-en="Continuous Learning" data-ar="التعلّم المستمر">Continuous Learning</div><div class="vp-desc" data-en="The best developers never stop being students." data-ar="أفضل المطورين لا يتوقفون عن كونهم طلابًا.">The best developers never stop being students.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- TEAM NOTE -->
+<section class="section section-alt2">
+  <div class="container-md">
+    <div class="team-note fade-up">
+      <span class="tag-label" data-en="// A NOTE FROM THE TEAM" data-ar="// ملاحظة من الفريق">// A NOTE FROM THE TEAM</span>
+      <p class="section-desc en-only" style="font-size:1.05rem;line-height:1.85">We built CyberStack because we wanted the resource we never had when we were learning. We spent years navigating fragmented tutorials, language barriers, and isolated communities. We knew there had to be a better way. CyberStack is that better way — and we're just getting started. Thank you for being part of this.</p>
+      <p class="section-desc ar-only" style="display:none;font-size:1.05rem;line-height:1.85">بنينا سايبرستاك لأننا أردنا المورد الذي لم يكن لدينا عندما كنا نتعلم. أمضينا سنوات في التنقل بين دروس متشتتة وحواجز لغوية ومجتمعات معزولة. كنا نعلم أن هناك طريقة أفضل. سايبرستاك هي تلك الطريقة الأفضل — ونحن لبدأنا فقط. شكرًا لكونك جزءًا من هذا.</p>
+      <div style="margin-top:24px">
+        <span class="badge badge-green" data-en="— The CyberStack Team" data-ar="— فريق سايبرستاك">— The CyberStack Team</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<section class="section centered">
+  <div class="container-sm fade-up">
+    <span class="tag-label" data-en="// JOIN THE MISSION" data-ar="// انضم إلى المهمة">// JOIN THE MISSION</span>
+    <h2 class="section-title"><span class="en-only">Be Part of <span class="hl">Something Bigger</span></span><span class="ar-only" style="display:none">كن جزءًا من شيء <span class="hl">أكبر</span></span></h2>
+    <div class="neon-divider"></div>
+    <p class="section-desc en-only">Join CyberStack and help us build the future of tech education for the Arabic-speaking world — and beyond.</p>
+    <p class="section-desc ar-only" style="display:none">انضم إلى سايبرستاك وساعدنا في بناء مستقبل التعليم التقني للعالم الناطق بالعربية — وما هو أبعد من ذلك.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px">
+      <a href="discord.html" class="btn btn-primary btn-lg" data-en="💬 Join Discord" data-ar="💬 انضم إلى الديسكورد">💬 Join Discord</a>
+      <a href="contact.html" class="btn btn-outline" data-en="Get in Touch" data-ar="تواصل معنا">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+</div>
+<div id="footer-placeholder"></div>
+<script src="js/main.js"></script>
+</body>
+</html>

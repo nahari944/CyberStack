@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programming — CyberStack</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+.prog-split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+body.ar .prog-split.flip { direction: rtl; }
+
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+.why-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 24px;
+  transition: all 0.3s; text-align: center;
+}
+.why-card:hover { border-color: var(--border-bright); box-shadow: var(--glow); transform: translateY(-4px); }
+.why-icon { font-size: 2.2rem; margin-bottom: 12px; }
+.why-title { font-family:'Orbitron',monospace; font-size: 0.85rem; font-weight:700; color: var(--white); margin-bottom:8px; }
+.why-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+
+.benefit-list { list-style:none; display:flex; flex-direction:column; gap:12px; }
+.benefit-list li {
+  display:flex; align-items:flex-start; gap:12px;
+  font-size: 0.93rem; color: var(--muted); line-height:1.6;
+}
+body.ar .benefit-list li { flex-direction: row-reverse; }
+.benefit-list li::before { content:'▸'; color:var(--green); font-size:0.85rem; margin-top:2px; flex-shrink:0; }
+body.ar .benefit-list li::before { content:'◂'; }
+
+.career-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap:16px; }
+.career-pill {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding:18px;
+  text-align:center; transition: all 0.3s; cursor: default;
+}
+.career-pill:hover { border-color:var(--border-bright); box-shadow:var(--glow); }
+.career-pill-icon { font-size:1.8rem; margin-bottom:8px; }
+.career-pill-name { font-size:0.85rem; font-weight:700; color:var(--white); }
+.career-pill-salary { font-family:'Share Tech Mono',monospace; font-size:0.72rem; color:var(--green); margin-top:4px; }
+
+@media(max-width:900px){.prog-split{grid-template-columns:1fr;}.why-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:580px){.why-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-content">
+
+<div class="breadcrumb">
+  <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+  <span>›</span>
+  <span data-en="Programming" data-ar="البرمجة">Programming</span>
+</div>
+
+<div class="page-hero" data-tag="// KNOWLEDGE BASE">
+  <h1><span class="hl">Programming</span></h1>
+  <p class="en-only">Everything you need to know about programming — what it is, why it matters, and why you should start today.</p>
+  <p class="ar-only" style="display:none">كل ما تحتاج معرفته عن البرمجة — ما هي، ولماذا تهمك، ولماذا يجب أن تبدأ اليوم.</p>
+</div>
+
+<!-- WHAT IS PROGRAMMING -->
+<section class="section">
+  <div class="container">
+    <div class="prog-split">
+      <div class="fade-up">
+        <span class="tag-label" data-en="// DEFINITION" data-ar="// التعريف">// DEFINITION</span>
+        <h2 class="section-title"><span class="en-only">What is <span class="hl">Programming?</span></span><span class="ar-only" style="display:none">ما هي <span class="hl">البرمجة؟</span></span></h2>
+        <div class="neon-divider"></div>
+        <p class="section-desc en-only" style="margin-bottom:20px">Programming is the art and science of communicating with computers using code — writing precise instructions that tell machines exactly what to do, step by step. It is the language of the digital world.</p>
+        <p class="section-desc ar-only" style="display:none;margin-bottom:20px">البرمجة هي فن وعلم التواصل مع الحواسيب باستخدام الكود — كتابة تعليمات دقيقة تخبر الآلات بالضبط ما يجب فعله، خطوة بخطوة. إنها لغة العالم الرقمي.</p>
+        <p class="section-desc en-only">From the apps on your phone to the algorithms powering social media, from video games to artificial intelligence — every digital experience you've ever had was made by a programmer.</p>
+        <p class="section-desc ar-only" style="display:none">من التطبيقات على هاتفك إلى الخوارزميات التي تشغّل وسائل التواصل الاجتماعي، من ألعاب الفيديو إلى الذكاء الاصطناعي — كل تجربة رقمية مررت بها صنعها مبرمج.</p>
+        <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="learn.html" class="btn btn-primary" data-en="Start Learning →" data-ar="ابدأ التعلم →">Start Learning →</a>
+          <a href="specialties.html" class="btn btn-outline" data-en="Browse Specialties" data-ar="تصفح التخصصات">Browse Specialties</a>
+        </div>
+      </div>
+      <div class="fade-up" style="transition-delay:0.15s">
+        <div class="code-block">
+          <div class="c-comment"># The world runs on code</div><br>
+          <div><span class="c-key">class</span> <span class="c-val">Reality</span>:</div>
+          <div style="padding-left:20px"><span class="c-key">def</span> <span class="c-val">__init__</span>(self):</div>
+          <div style="padding-left:40px">self.apps = <span class="c-str">True</span></div>
+          <div style="padding-left:40px">self.websites = <span class="c-str">True</span></div>
+          <div style="padding-left:40px">self.ai = <span class="c-str">True</span></div>
+          <div style="padding-left:40px">self.games = <span class="c-str">True</span></div>
+          <div style="padding-left:40px">self.future = <span class="c-val">"written in code"</span></div>
+          <br>
+          <div><span class="c-key">def</span> <span class="c-val">who_controls_it</span>(self):</div>
+          <div style="padding-left:20px"><span class="c-key">return</span> <span class="c-val">"Programmers do."</span></div>
+          <br>
+          <div>world = <span class="c-val">Reality</span>()</div>
+          <div>print(world.who_controls_it())</div>
+          <div style="color:var(--muted)">>>> <span class="c-val">"Programmers do."</span><span class="cursor"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- WHY IMPORTANT -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="fade-up centered">
+      <span class="tag-label" data-en="// IMPORTANCE" data-ar="// الأهمية">// IMPORTANCE</span>
+      <h2 class="section-title"><span class="en-only">Why Programming <span class="hl">Matters</span></span><span class="ar-only" style="display:none">لماذا تهمنا <span class="hl">البرمجة؟</span></span></h2>
+      <div class="neon-divider"></div>
+      <p class="section-desc en-only">Programming is not just a skill — it is a superpower that shapes every industry on earth.</p>
+      <p class="section-desc ar-only" style="display:none">البرمجة ليست مجرد مهارة — إنها قوة خارقة تُشكّل كل صناعة على وجه الأرض.</p>
+    </div>
+    <div class="why-grid fade-up" style="margin-top:44px">
+      <div class="why-card">
+        <div class="why-icon">🏥</div>
+        <div class="why-title" data-en="Healthcare" data-ar="الرعاية الصحية">Healthcare</div>
+        <div class="why-desc" data-en="From diagnostic AI to patient management systems — software saves millions of lives." data-ar="من الذكاء الاصطناعي التشخيصي إلى أنظمة إدارة المرضى — البرمجيات تُنقذ ملايين الأرواح.">From diagnostic AI to patient management systems — software saves millions of lives.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏦</div>
+        <div class="why-title" data-en="Finance" data-ar="المالية">Finance</div>
+        <div class="why-desc" data-en="Banking, trading, fintech, and crypto all run on code written by skilled developers." data-ar="المصارف والتداول والتقنية المالية والعملات الرقمية تعمل على كود كتبه مطورون محترفون.">Banking, trading, fintech, and crypto all run on code written by skilled developers.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🚗</div>
+        <div class="why-title" data-en="Transportation" data-ar="النقل">Transportation</div>
+        <div class="why-desc" data-en="Self-driving cars, navigation systems, and logistics platforms are all software-powered." data-ar="السيارات ذاتية القيادة وأنظمة الملاحة ومنصات اللوجستيات كلها مدعومة بالبرمجيات.">Self-driving cars, navigation systems, and logistics platforms are all software-powered.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🎓</div>
+        <div class="why-title" data-en="Education" data-ar="التعليم">Education</div>
+        <div class="why-desc" data-en="E-learning platforms, AI tutors, and smart classrooms are transforming how we learn." data-ar="منصات التعلم الإلكتروني والمعلمون الذكاء الاصطناعي والفصول الذكية تُحوّل طريقة التعلم.">E-learning platforms, AI tutors, and smart classrooms are transforming how we learn.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔐</div>
+        <div class="why-title" data-en="Security" data-ar="الأمن">Security</div>
+        <div class="why-desc" data-en="Cybersecurity professionals protect nations, companies, and individuals from digital threats." data-ar="متخصصو الأمن السيبراني يحمون الدول والشركات والأفراد من التهديدات الرقمية.">Cybersecurity professionals protect nations, companies, and individuals from digital threats.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🌍</div>
+        <div class="why-title" data-en="Everything Else" data-ar="كل شيء آخر">Everything Else</div>
+        <div class="why-desc" data-en="Agriculture, entertainment, science, space — no industry is untouched by code." data-ar="الزراعة والترفيه والعلوم والفضاء — لا توجد صناعة لم يمسسها الكود.">Agriculture, entertainment, science, space — no industry is untouched by code.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- WHY LEARN -->
+<section class="section">
+  <div class="container">
+    <div class="prog-split">
+      <div class="fade-up">
+        <span class="tag-label" data-en="// BENEFITS" data-ar="// الفوائد">// BENEFITS</span>
+        <h2 class="section-title"><span class="en-only">Why You Should <span class="hl">Learn It</span></span><span class="ar-only" style="display:none">لماذا يجب أن <span class="hl">تتعلمها؟</span></span></h2>
+        <div class="neon-divider"></div>
+        <ul class="benefit-list">
+          <li data-en="High-paying careers with remote work opportunities worldwide" data-ar="مهن ذات رواتب عالية مع فرص عمل عن بُعد في جميع أنحاء العالم">High-paying careers with remote work opportunities worldwide</li>
+          <li data-en="Build your own products, apps, and startup ideas" data-ar="بناء منتجاتك الخاصة وتطبيقاتك وأفكار شركتك الناشئة">Build your own products, apps, and startup ideas</li>
+          <li data-en="Automate repetitive tasks and save hours every week" data-ar="أتمتة المهام المتكررة وتوفير ساعات كل أسبوع">Automate repetitive tasks and save hours every week</li>
+          <li data-en="Solve complex real-world problems with technology" data-ar="حل المشكلات المعقدة في العالم الحقيقي بالتكنولوجيا">Solve complex real-world problems with technology</li>
+          <li data-en="Become irreplaceable in any industry you choose" data-ar="أصبح لا غنى عنك في أي صناعة تختارها">Become irreplaceable in any industry you choose</li>
+          <li data-en="Join a global community of creators and innovators" data-ar="انضم إلى مجتمع عالمي من المبدعين والمبتكرين">Join a global community of creators and innovators</li>
+          <li data-en="Understand how the digital world actually works" data-ar="افهم كيف يعمل العالم الرقمي فعلًا">Understand how the digital world actually works</li>
+          <li data-en="Future-proof your career against automation" data-ar="احمِ مسيرتك المهنية من التهديدات المستقبلية للأتمتة">Future-proof your career against automation</li>
+        </ul>
+      </div>
+      <div class="fade-up" style="transition-delay:0.15s">
+        <span class="tag-label" data-en="// CAREERS & SALARIES" data-ar="// المهن والرواتب">// CAREERS & SALARIES</span>
+        <h2 class="section-title"><span class="en-only">Where It Takes <span class="hl">You</span></span><span class="ar-only" style="display:none">إلى أين <span class="hl">يأخذك؟</span></span></h2>
+        <div class="neon-divider"></div>
+        <div class="career-row">
+          <div class="career-pill"><div class="career-pill-icon">🖥️</div><div class="career-pill-name" data-en="Web Dev" data-ar="تطوير ويب">Web Dev</div><div class="career-pill-salary">$70K–$150K</div></div>
+          <div class="career-pill"><div class="career-pill-icon">🔒</div><div class="career-pill-name" data-en="Cybersecurity" data-ar="أمن سيبراني">Cybersecurity</div><div class="career-pill-salary">$90K–$180K</div></div>
+          <div class="career-pill"><div class="career-pill-icon">🧠</div><div class="career-pill-name" data-en="AI Engineer" data-ar="مهندس ذكاء اصطناعي">AI Engineer</div><div class="career-pill-salary">$120K–$250K</div></div>
+          <div class="career-pill"><div class="career-pill-icon">📊</div><div class="career-pill-name" data-en="Data Science" data-ar="علم البيانات">Data Science</div><div class="career-pill-salary">$90K–$160K</div></div>
+          <div class="career-pill"><div class="career-pill-icon">📱</div><div class="career-pill-name" data-en="Mobile Dev" data-ar="تطوير موبايل">Mobile Dev</div><div class="career-pill-salary">$80K–$160K</div></div>
+          <div class="career-pill"><div class="career-pill-icon">☁️</div><div class="career-pill-name" data-en="Cloud / DevOps" data-ar="سحابة / ديف أوبس">Cloud / DevOps</div><div class="career-pill-salary">$100K–$200K</div></div>
+        </div>
+        <div style="margin-top:24px;">
+          <a href="specialties.html" class="btn btn-outline" data-en="Explore All Specialties →" data-ar="استكشف جميع التخصصات →">Explore All Specialties →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- CTA -->
+<section class="section section-alt2 centered">
+  <div class="container-sm">
+    <div class="fade-up">
+      <span class="tag-label" data-en="// READY?" data-ar="// مستعد؟">// READY?</span>
+      <h2 class="section-title"><span class="en-only">Start Your <span class="hl">Journey Today</span></span><span class="ar-only" style="display:none">ابدأ <span class="hl">رحلتك اليوم</span></span></h2>
+      <div class="neon-divider"></div>
+      <p class="section-desc en-only">You don't need to be a genius. You don't need a degree. You need consistency, curiosity, and the right community.</p>
+      <p class="section-desc ar-only" style="display:none">لا تحتاج أن تكون عبقريًا. لا تحتاج شهادة. تحتاج الاتساق والفضول والمجتمع الصحيح.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px;">
+        <a href="learn.html" class="btn btn-primary btn-lg" data-en="🗺️ Learning Roadmap" data-ar="🗺️ خارطة طريق التعلم">🗺️ Learning Roadmap</a>
+        <a href="discord.html" class="btn btn-outline" data-en="Join Our Community" data-ar="انضم إلى مجتمعنا">Join Our Community</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+<div id="footer-placeholder"></div>
+<script src="js/main.js"></script>
+</body>
+</html>

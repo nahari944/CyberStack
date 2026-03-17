@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberStack — Learn. Build. Connect.</title>
+<link rel="stylesheet" href="css/main.css">
+<style>
+/* ── HOME SPECIFIC ── */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 100px 24px 80px;
+  background: radial-gradient(ellipse 90% 60% at 50% 0%, rgba(124,255,79,0.08) 0%, transparent 65%);
+  position: relative; overflow: hidden;
+}
+
+.hero-inner {
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+}
+
+.hero-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.72rem; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--cyan); margin-bottom: 22px;
+  display: flex; align-items: center; gap: 12px;
+}
+
+.hero-tag::before {
+  content: ''; width: 30px; height: 1px;
+  background: var(--cyan); box-shadow: var(--glow-cyan);
+}
+
+body.ar .hero-tag { flex-direction: row-reverse; }
+body.ar .hero-tag::before { display: none; }
+body.ar .hero-tag::after { content: ''; width: 30px; height: 1px; background: var(--cyan); }
+
+.hero h1 {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  font-weight: 900; line-height: 1.12;
+  margin-bottom: 22px;
+}
+
+.hero-desc {
+  font-size: 1.05rem; color: var(--muted);
+  line-height: 1.75; margin-bottom: 36px; max-width: 500px;
+}
+
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.hero-stats {
+  display: flex; gap: 36px; margin-top: 44px; flex-wrap: wrap;
+}
+
+/* ORB */
+.orb-wrap {
+  display: flex; align-items: center; justify-content: center;
+}
+
+.orb {
+  width: 360px; height: 360px; border-radius: 50%; position: relative;
+  display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(circle, rgba(124,255,79,0.1) 0%, rgba(0,229,255,0.05) 45%, transparent 70%);
+  border: 1px solid rgba(124,255,79,0.18);
+  animation: orb-pulse 4s ease-in-out infinite;
+}
+
+@keyframes orb-pulse {
+  0%,100%{ box-shadow: 0 0 40px rgba(124,255,79,0.12), inset 0 0 40px rgba(124,255,79,0.04); }
+  50%{ box-shadow: 0 0 80px rgba(124,255,79,0.25), inset 0 0 60px rgba(124,255,79,0.08); }
+}
+
+.orb-ring {
+  position: absolute; border-radius: 50%; border-style: solid;
+  animation: spin linear infinite;
+}
+.orb-ring:nth-child(1){ width:310px;height:310px;border-width:1px;border-color:rgba(124,255,79,0.12);animation-duration:22s; }
+.orb-ring:nth-child(2){ width:250px;height:250px;border-width:1px;border-color:rgba(0,229,255,0.1);animation-duration:16s;animation-direction:reverse; }
+.orb-ring:nth-child(3){ width:190px;height:190px;border-width:1px;border-color:rgba(124,255,79,0.07);animation-duration:28s; }
+
+@keyframes spin { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+
+.orb-core {
+  font-family: 'Orbitron', monospace;
+  text-align: center; z-index: 2; color: var(--green);
+}
+
+.orb-icon { font-size: 3.5rem; display: block; margin-bottom: 8px; filter: drop-shadow(0 0 14px var(--green)); }
+.orb-text { font-size: 1.1rem; font-weight: 800; letter-spacing: 3px; text-shadow: var(--glow); }
+.orb-sub { font-size: 0.65rem; color: var(--cyan); letter-spacing: 4px; margin-top: 4px; }
+
+/* NAV CARDS */
+.nav-cards {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px; margin-top: 48px;
+}
+
+.nav-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 22px 20px;
+  text-decoration: none; color: inherit;
+  transition: all 0.3s; display: block; position: relative; overflow: hidden;
+}
+
+.nav-card::before {
+  content: ''; position: absolute;
+  bottom: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--green), var(--cyan));
+  opacity: 0; transition: opacity 0.3s;
+}
+
+.nav-card:hover { border-color: var(--border-bright); box-shadow: var(--glow); transform: translateY(-4px); }
+.nav-card:hover::before { opacity: 1; }
+.nav-card-icon { font-size: 1.8rem; margin-bottom: 10px; display: block; }
+.nav-card-title { font-family: 'Orbitron', monospace; font-size: 0.85rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+.nav-card-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+.nav-card-arrow { position: absolute; top: 18px; right: 18px; color: var(--green); font-size: 1rem; opacity: 0; transition: all 0.25s; }
+body.ar .nav-card-arrow { right: auto; left: 18px; }
+.nav-card:hover .nav-card-arrow { opacity: 1; transform: translateX(3px); }
+body.ar .nav-card:hover .nav-card-arrow { transform: translateX(-3px); }
+
+/* HIGHLIGHTS */
+.highlight-row {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 22px;
+}
+
+.hl-main {
+  background: var(--card); border: 1px solid var(--border-bright);
+  border-radius: var(--radius-lg); padding: 32px;
+  box-shadow: var(--glow); position: relative; overflow: hidden;
+}
+
+.hl-main::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--green), var(--cyan));
+}
+
+.hl-main-label { font-family: 'Share Tech Mono', monospace; font-size: 0.65rem; letter-spacing: 3px; color: var(--cyan); margin-bottom: 14px; }
+.hl-main-title { font-family: 'Orbitron', monospace; font-size: 1.3rem; font-weight: 800; color: var(--white); line-height: 1.3; margin-bottom: 12px; }
+.hl-main-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+
+.hl-side {
+  display: flex; flex-direction: column; gap: 14px;
+}
+
+.hl-item {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 18px;
+  text-decoration: none; color: inherit;
+  transition: all 0.3s; flex: 1;
+}
+.hl-item:hover { border-color: var(--border-bright); box-shadow: var(--glow); transform: translateX(4px); }
+body.ar .hl-item:hover { transform: translateX(-4px); }
+.hl-item-cat { font-family: 'Share Tech Mono', monospace; font-size: 0.62rem; letter-spacing: 2px; color: var(--green); margin-bottom: 6px; }
+.hl-item-title { font-size: 0.88rem; font-weight: 700; color: var(--white); line-height: 1.4; }
+.hl-item-date { font-family: 'Share Tech Mono', monospace; font-size: 0.62rem; color: var(--dim); margin-top: 6px; }
+
+@media(max-width:900px){
+  .hero-inner { grid-template-columns: 1fr; }
+  .orb-wrap { display: none; }
+  .highlight-row { grid-template-columns: 1fr; }
+  .hl-side { flex-direction: row; }
+}
+@media(max-width:580px){ .hl-side { flex-direction: column; } }
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<div class="page-content">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="fade-up">
+      <div class="hero-tag" data-en="[ CYBERSTACK COMMUNITY ]" data-ar="[ مجتمع سايبرستاك ]">[ CYBERSTACK COMMUNITY ]</div>
+      <h1>
+        <span class="en-only">Learn <span class="hl">Programming.</span><br>Explore <span class="hl-c">Technology.</span><br>Stay <span class="hl">Updated.</span></span>
+        <span class="ar-only" style="display:none">تعلّم <span class="hl">البرمجة.</span><br>اكتشف <span class="hl-c">التقنية.</span><br>وابقَ <span class="hl">على اطلاع.</span></span>
+      </h1>
+      <p class="hero-desc en-only">Your home for programming, cybersecurity, and tech. Join thousands of developers and hackers building the future — together.</p>
+      <p class="hero-desc ar-only" style="display:none">وجهتك للبرمجة والأمن السيبراني والتقنية. انضم إلى آلاف المطورين والهاكرز الذين يبنون المستقبل معًا.</p>
+      <div class="hero-btns">
+        <a href="discord.html" class="btn btn-primary btn-lg" data-en="🔗 Join Discord" data-ar="🔗 انضم إلى الديسكورد">🔗 Join Discord</a>
+        <a href="programming.html" class="btn btn-outline" data-en="&lt;/&gt; Programming" data-ar="&lt;/&gt; البرمجة">&lt;/&gt; Programming</a>
+        <a href="news.html" class="btn btn-cyan" data-en="📡 Tech News" data-ar="📡 أخبار التقنية">📡 Tech News</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num pulse-glow">100+</div><div class="stat-label en-only">Members</div><div class="stat-label ar-only" style="display:none">عضو</div></div>
+        <div class="stat"><div class="stat-num pulse-glow" style="color:var(--cyan);text-shadow:var(--glow-cyan)">15+</div><div class="stat-label en-only">Channels</div><div class="stat-label ar-only" style="display:none">قناة</div></div>
+        <div class="stat"><div class="stat-num pulse-glow">24/7</div><div class="stat-label en-only">Active</div><div class="stat-label ar-only" style="display:none">نشط</div></div>
+      </div>
+    </div>
+    <div class="orb-wrap fade-up" style="transition-delay:0.15s">
+      <div class="orb">
+        <div class="orb-ring"></div>
+        <div class="orb-ring"></div>
+        <div class="orb-ring"></div>
+        <div class="orb-core">
+          <span class="orb-icon">⚡</span>
+          <div class="orb-text">CYBER<br>STACK</div>
+          <div class="orb-sub">COMMUNITY</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- QUICK NAV CARDS -->
+<section class="section" style="background:var(--bg2)">
+  <div class="container">
+    <div class="fade-up centered">
+      <span class="tag-label" data-en="// EXPLORE" data-ar="// استكشف">// EXPLORE</span>
+      <h2 class="section-title"><span class="en-only">Everything in One <span class="hl">Place</span></span><span class="ar-only" style="display:none">كل شيء في مكان <span class="hl">واحد</span></span></h2>
+      <div class="neon-divider"></div>
+    </div>
+    <div class="nav-cards fade-up">
+      <a href="programming.html" class="nav-card">
+        <span class="nav-card-icon">💻</span>
+        <div class="nav-card-title" data-en="Programming" data-ar="البرمجة">Programming</div>
+        <div class="nav-card-desc" data-en="What it is, why it matters, how to start." data-ar="ما هي البرمجة، ولماذا تهمك، وكيف تبدأ.">What it is, why it matters, how to start.</div>
+        <span class="nav-card-arrow">→</span>
+      </a>
+      <a href="learn.html" class="nav-card">
+        <span class="nav-card-icon">🗺️</span>
+        <div class="nav-card-title" data-en="Learn Programming" data-ar="تعلم البرمجة">Learn Programming</div>
+        <div class="nav-card-desc" data-en="Step-by-step roadmap for beginners." data-ar="خارطة طريق خطوة بخطوة للمبتدئين.">Step-by-step roadmap for beginners.</div>
+        <span class="nav-card-arrow">→</span>
+      </a>
+      <a href="specialties.html" class="nav-card">
+        <span class="nav-card-icon">🎯</span>
+        <div class="nav-card-title" data-en="Specialties" data-ar="التخصصات">Specialties</div>
+        <div class="nav-card-desc" data-en="Explore all programming fields and paths." data-ar="استكشف جميع مجالات البرمجة ومساراتها.">Explore all programming fields and paths.</div>
+        <span class="nav-card-arrow">→</span>
+      </a>
+      <a href="technology.html" class="nav-card">
+        <span class="nav-card-icon">🔮</span>
+        <div class="nav-card-title" data-en="Technology" data-ar="التقنية">Technology</div>
+        <div class="nav-card-desc" data-en="AI tools, gadgets, trends, and more." data-ar="أدوات الذكاء الاصطناعي، الأجهزة، الاتجاهات وأكثر.">AI tools, gadgets, trends, and more.</div>
+        <span class="nav-card-arrow">→</span>
+      </a>
+      <a href="news.html" class="nav-card">
+        <span class="nav-card-icon">📡</span>
+        <div class="nav-card-title" data-en="News" data-ar="الأخبار">News</div>
+        <div class="nav-card-desc" data-en="Tech, programming, and cybersecurity news." data-ar="أخبار التقنية والبرمجة والأمن السيبراني.">Tech, programming, and cybersecurity news.</div>
+        <span class="nav-card-arrow">→</span>
+      </a>
+      <a href="discord.html" class="nav-card">
+        <span class="nav-card-icon">💬</span>
+        <div class="nav-card-title" data-en="Discord Community" data-ar="مجتمع الديسكورد">Discord Community</div>
+        <div class="nav-card-desc" data-en="Join our active server. 10K+ members." data-ar="انضم إلى سيرفرنا النشط. أكثر من 10,000 عضو.">Join our active server. 10K+ members.</div>
+        <span class="nav-card-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- HIGHLIGHTS -->
+<section class="section">
+  <div class="container">
+    <div class="fade-up">
+      <span class="tag-label" data-en="// LATEST HIGHLIGHTS" data-ar="// أبرز الأحداث">// LATEST HIGHLIGHTS</span>
+      <h2 class="section-title"><span class="en-only">What's <span class="hl">New</span></span><span class="ar-only" style="display:none">ما الذي <span class="hl">جديد</span></span></h2>
+      <div class="neon-divider"></div>
+    </div>
+    <div class="highlight-row fade-up">
+      <div class="hl-main">
+        <div class="hl-main-label" data-en="🔥 FEATURED" data-ar="🔥 مميز">🔥 FEATURED</div>
+        <div class="hl-main-title en-only">GPT-5 Redefines AI Reasoning and Code Generation</div>
+        <div class="hl-main-title ar-only" style="display:none">GPT-5 يُعيد تعريف استدلال الذكاء الاصطناعي وتوليد الكود</div>
+        <div class="hl-main-desc en-only">OpenAI's latest model sets a new standard for AI reasoning, multi-modal understanding, and autonomous code generation — reshaping how developers work.</div>
+        <div class="hl-main-desc ar-only" style="display:none">أحدث نماذج OpenAI يضع معيارًا جديدًا للاستدلال متعدد الوسائط وتوليد الكود تلقائيًا، مما يُعيد تشكيل طريقة عمل المطورين.</div>
+        <a href="news.html" class="btn btn-outline btn-sm" data-en="Read More →" data-ar="اقرأ المزيد ←">Read More →</a>
+      </div>
+      <div class="hl-side">
+        <a href="news.html" class="hl-item">
+          <div class="hl-item-cat" data-en="CYBERSECURITY" data-ar="أمن سيبراني">CYBERSECURITY</div>
+          <div class="hl-item-title en-only">Critical Zero-Day Discovered in Major Linux Kernel</div>
+          <div class="hl-item-title ar-only" style="display:none">اكتشاف ثغرة Zero-Day حرجة في نواة Linux</div>
+          <div class="hl-item-date">March 2025</div>
+        </a>
+        <a href="news.html" class="hl-item">
+          <div class="hl-item-cat" data-en="PROGRAMMING" data-ar="برمجة">PROGRAMMING</div>
+          <div class="hl-item-title en-only">Python Tops TIOBE Index for 3rd Consecutive Year</div>
+          <div class="hl-item-title ar-only" style="display:none">Python يتصدر TIOBE للسنة الثالثة على التوالي</div>
+          <div class="hl-item-date">Feb 2025</div>
+        </a>
+      </div>
+      <div class="hl-side">
+        <a href="news.html" class="hl-item">
+          <div class="hl-item-cat" data-en="TECHNOLOGY" data-ar="تقنية">TECHNOLOGY</div>
+          <div class="hl-item-title en-only">Apple Vision Pro 2 Specs Leaked — M4 Ultra Chip</div>
+          <div class="hl-item-title ar-only" style="display:none">تسريب مواصفات Apple Vision Pro 2 — شريحة M4 Ultra</div>
+          <div class="hl-item-date">Feb 2025</div>
+        </a>
+        <a href="discord.html" class="hl-item">
+          <div class="hl-item-cat" data-en="COMMUNITY" data-ar="مجتمع">COMMUNITY</div>
+          <div class="hl-item-title en-only">CyberStack CTF Event — Win Prizes & Learn Hacking</div>
+          <div class="hl-item-title ar-only" style="display:none">فعالية CyberStack CTF — اربح جوائز وتعلم الاختراق</div>
+          <div class="hl-item-date">Mar 2025</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="accent-bar"></div>
+
+<!-- COMMUNITY CTA -->
+<section class="section section-alt">
+  <div class="container centered">
+    <div class="fade-up">
+      <span class="tag-label" data-en="// JOIN US" data-ar="// انضم إلينا">// JOIN US</span>
+      <h2 class="section-title"><span class="en-only">Ready to Level <span class="hl">Up?</span></span><span class="ar-only" style="display:none">هل أنت مستعد للارتقاء <span class="hl">للمستوى التالي؟</span></span></h2>
+      <div class="neon-divider"></div>
+      <p class="section-desc en-only">Join 10,000+ developers, hackers, and tech enthusiasts on our Discord server. Get help, share projects, and grow together.</p>
+      <p class="section-desc ar-only" style="display:none">انضم إلى أكثر من 10,000 مطور وهاكر وعاشق للتقنية على سيرفرنا في ديسكورد. احصل على المساعدة، شارك مشاريعك، وانمُ معنا.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px;">
+        <a href="discord.html" class="btn btn-primary btn-lg" data-en="🔗 Join CyberStack Discord" data-ar="🔗 انضم إلى ديسكورد سايبرستاك">🔗 Join CyberStack Discord</a>
+        <a href="about.html" class="btn btn-outline" data-en="Learn About Us" data-ar="تعرف علينا">Learn About Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+<div id="footer-placeholder"></div>
+<script src="js/main.js"></script>
+</body>
+</html>
